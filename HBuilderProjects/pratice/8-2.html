@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var sid;
+
+			function startT() {
+				var today = new Date();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+				document.getElementById("time").value = "现在时间为：" + h + ":" + m + ":" + s;
+				sid = setTimeout('startT()', 1000);
+			}
+
+			function stopT() {
+				clearTimeout(sid);
+			}
+
+			function closeWin() {
+				window.close();
+			}
+
+			function openWin() {
+				window.open();
+			}
+
+			function changeWin() {
+				var left = Math.random() * 500;
+				var top = Math.random() * 500;
+
+				/*只能IE*/
+				window.moveTo(left, top);
+				window.resizeTo(left * 5, top * 5);
+				window.setTimeout("changeWin()", 2000);
+				/*window.moveBy(500,100);
+				window.resizeBy(300,200);*/
+				/*window.moveTo(50,100);
+				window.resizeTo(500,500);*/
+			}
+
+			function showWinInfo() {
+				document.write("可用宽度: " + screen.availWidth);
+				document.write("可用高度: " + screen.availHeight);
+			}
+
+			function back() {
+				history.back();
+			}
+
+			function forward() {
+				history.forward();
+			}
+
+			function showNav() {
+				txt = "<p>浏览器代号: " + navigator.appCodeName + "</p>";
+				txt += "<p>浏览器名称: " + navigator.appName + "</p>";
+				txt += "<p>浏览器版本: " + navigator.appVersion + "</p>";
+				txt += "<p>启用Cookies: " + navigator.cookieEnabled + "</p>";
+				txt += "<p>硬件平台: " + navigator.platform + "</p>";
+				txt += "<p>用户代理: " + navigator.userAgent + "</p>";
+				txt += "<p>用户代理语言: " + navigator.systemLanguage + "</p>";
+				document.write(txt);
+			}
+
+			function assign() {
+				location.assign("http://www.runoob.com");
+			}
+
+			function replace() {
+				location.replace("http://www.runoob.com");
+			}
+
+			function href() {
+				location.href = "http://www.runoob.com";
+			}
+
+			function reload() {
+				location.reload(true);
+			}
+
+			function selAll(btnSelAll) {
+				var flag = btnSelAll.checked;
+
+				var chText = document.getElementById("selcan");
+				flag ? chText.innerHTML = "取消" : chText.innerHTML = "全选";
+
+				var a = document.getElementsByName("option");
+				for(var i = 0; i < a.length; i++) {
+					a[i].checked = flag;
+				}
+			}
+
+			function goBack() {
+				window.history.back();
+			}
+
+			function goForward() {
+				window.history.forward();
+			}
+		</script>
+		<style>
+			*{
+				margin: 5;
+			}
+			.dom_div{
+				border: 1px solid green;
+			}
+			.dom_div div{
+				margin: 0 auto;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				width: 80%;
+				border: 2px dashed blueviolet;
+				height: 50px;
+			}
+		</style>
+		<script>
+			function addDiv(){
+				var parDiv = document.getElementById("parDiv");
+				var newDiv = document.createElement("div");
+				newDiv.innerHTML = "<h3>在最后一个孩子节点后增加了"+(++i)+"个div,time:"+new Date().getTime()+"</h3>";
+				parDiv.appendChild(newDiv);
+			}
+			var i = 0;
+			function iseBef(){
+				var parDiv = document.getElementById("parDiv");
+				var newDiv = document.createElement("div");
+				newDiv.innerHTML = "<h3>在第一个孩子节点前增加了第"+(++i)+"个div,time:"+new Date().getTime()+"</h3>";
+				parDiv.insertBefore(newDiv,parDiv.firstChild);
+			}
+			function removDiv(){
+				var parDiv = document.getElementById("parDiv");
+				parDiv.removeChild(parDiv.firstChild);
+			}
+			function replaceDiv(){
+				var parDiv = document.getElementById("parDiv");
+				parDiv.replaceChild(parDiv.firstChild,parDiv.lastChild);
+			}
+		</script>
+	</head>
+
+	<body>
+		<hr>
+		<h1>DOM操作</h1>
+		<input type="button" value="增加一个div" onclick="addDiv();" />
+		<input type="button" value="在之前增加一个div" onclick="iseBef()" />
+		<input type="button" value="删除第一个孩子节点div" onclick="removDiv()" />
+		<input type="button" value="用第一个孩子节点替换掉最后一个孩子节点" onclick="replaceDiv()" />
+		<div class="dom_div" id="parDiv" >
+			<div class="dom_div_div" id="div1" >
+				<h3>Hello div dom操作</h3>
+			</div>
+			<div class="dom_div_div" id="div2" >
+				<h3>Second div dom操作</h3>
+			</div>
+		</div>
+		<hr>
+		<h1>轮换效果</h1>
+		<div>
+			<div class="top_nav">				
+			</div>
+			<div>
+				
+			</div>
+		</div>
+		<hr>
+		<input type="button" value="后退" onclick="goBack();" />
+		<input type="button" value="前进" onclick="goForward();" />
+		<hr>
+		<h1>计时器</h1>
+		<input type="button" value="开始" onclick="startT();" />
+		<input type="text" id="time" />
+		<input type="button" value="停止" onclick="stopT();" /><br>
+		<hr>
+		<h1>window对象</h1>
+		<input type="button" value="关闭窗口，并显示存留了多少秒" onclick="closeWin();" /><br>
+		<input type="button" value="打开一个窗口" onclick="openWin();" />
+		<hr>
+		<input type="button" value="窗口属性" onclick="showWinInfo()" /><br>
+		<input type="button" value="navigator信息" onclick="showNav()" /><br>
+		<input type="button" value="我是能变形的IE窗口" onclick="changeWin();" /><br>
+		<input type="button" value="脑袋已经坏了的IE窗口" /><br>
+		<hr>
+		<h1>window.location对象</h1>
+		<input type="button" value="Location信息" />本窗口location信息<br>
+		<input type="button" value="Location assign（）加载页面" onclick="assign();" /><br>
+		<input type="button" value="Location replace()加载页面" onclick="replace();" />不会有回退<br>
+		<input type="button" value="href加载页面" onclick="href();" /><br>
+		<input type="button" value="reload()刷新" onclick="reload();" /><br>
+		<hr>
+		<input type="checkbox" value="" id="selAll" onchange="selAll(this);" />
+		<span id="selcan">全选</span>
+		<table border="1">
+			<tr>
+				<td>
+					<input type="checkbox" value="" name="option" />
+
+				</td>
+				<td>
+					one<img src="imges/HBuilder.png" width="100" height="20" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" value="" name="option" />
+
+				</td>
+				<td>
+					two<img src="imges/HBuilder.png" width="100" height="20" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" value="" name="option" />
+
+				</td>
+				<td>
+					three<img src="imges/HBuilder.png" width="100" height="20" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" value="" name="option" />
+
+				</td>
+				<td>
+					four<img src="imges/HBuilder.png" width="100" height="20" />
+				</td>
+			</tr>
+		</table>
+		<hr>
+	</body>
+
+</html>

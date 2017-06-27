@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+			}
+			
+			.top_nav {
+				background-color: #000000;
+				height: 50px;
+			}
+			
+			.top_nav p {
+				color: white;
+				text-align: center;
+				font-size: 25px;
+				padding-top: 10px;
+			}
+			
+			.top_ban {
+				width: 85%;
+				margin-left: 100px;
+				margin-right: 100px;
+			}
+			
+			.top_ban img {
+				width: 100%;
+				height: 300px;
+			}
+			
+			.top_btn {
+				position: absolute;
+				top: 300px;
+				left: 80%;
+			}
+			
+			.top_btn button {
+				background-color: #20B2AA;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div>
+			<div class="top_nav">
+				<p>导航栏</p>
+			</div>
+			<div class="top_ban">
+				<img name="banner" src="imges/ban1.jpg" />
+				<img name="banner" src="imges/ban2.jpg" style="display: none;" />
+				<img name="banner" src="imges/ban3.jpg" style="display: none;" />
+				<img name="banner" src="imges/ban4.jpg" style="display: none;" />
+				<img name="banner" src="imges/ban5.jpg" style="display: none;" />
+				<div class="top_btn">
+					<!--onclick="setCutImgId(0)"-->
+					<button>1</button>
+					<button>2</button>
+					<button>3</button>
+					<button>4</button>
+					<button>5</button>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+
+</html>
+<script>
+	(function() {
+		bindOnclick();
+		setInterval("show()", 1500);
+	})();
+
+	var cutImgId = 0;
+
+	function show() {
+		//1、获得具有相同名字的图片元素，循环显示当前要显示的图片和隐藏其他图片
+		var bans = document.getElementsByName("banner");
+		for(var i = 0; i < bans.length; i++) {
+			i == cutImgId ? bans[i].style.display = "block" : bans[i].style.display = "none";
+		}
+		//2、通过定时器不断调用该函数，每2秒改变图片后，并改变下一个要显示的图片id,如果已达到末尾id为bans.length-1,则把id置为开始，否则id自增;
+		cutImgId == bans.length - 1 ? cutImgId = 0 : cutImgId++;
+	}
+
+	/*手动改变图片*/
+	function setCutImgId(id) {
+		cutImgId = id;
+		show();
+	}
+	/*绑定事件到按钮parseInt(this.textContent)-1*/
+	function bindOnclick() {
+		var btns = document.getElementsByTagName("button");
+		for(var i = 0; i < btns.length; i++) {
+			btns[i].onclick = function() {
+				setCutImgId(parseInt(this.textContent) - 1);
+			}
+		}
+	}
+</script>

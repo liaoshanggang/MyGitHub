@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>新会员注册</title>
+		<script type="text/javascript" src="js/register.js"></script>
+	</head>
+
+	<body>
+		<table align="center" border="1" cellpadding="3" cellspacing="0" cols="2" width="60%">
+			<thead align="center">
+				<caption>
+					<h1>新会员注册</h1></caption>
+			</thead>
+			<tbody>
+				<tr>
+					<td>*会员邮箱：</td>
+					<td>
+						<input type="text" id="email" placeholder="请输入合法的邮箱地址" size="40%" />
+						<img src="imges/check.jpg" height="18px" onclick="checkEmail()" />
+						<span id="emailFeedback"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>*会员名：</td>
+					<td><input type="text" id="username" placeholder="请输入由字母或数字组合的用户名" size="40%" />
+						<img src="imges/check.jpg" height="18px" onclick="checkUsername()">
+						<span id="usernameFeedback"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>*手机号码：</td>
+					<td><input type="text" id="phonenumber" placeholder="请输入常用手机号码" onblur="checkPhoneNumber()" />
+						<span id="phoneFeedback"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>*身份证：</td>
+					<td><input type="text" id="identityCard" placeholder="请输入你的身份证" onblur="checkIdCard()" />
+						<span id="idCardFeedback"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>*密码：</td>
+					<td><input type="password" id="pwd" onblur="checkPwd()" />
+						<span id="pwdFeedback"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>*重复密码：</td>
+					<td><input type="password" id="repwd" onblur="checkRepwd()" />
+						<span id="repwdFeedback"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>*日期：</td>
+					<td><input type="text" id="date" placeholder="年-月-日" onblur="checkDate()" />
+						<span id="dateFeedback"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>性别：</td>
+					<td>
+						男<input type="radio" name="sex" checked="checked" /> 女
+						<input type="radio" name="sex" />
+					</td>
+				</tr>
+				<tr>
+					<td>联系方式：</td>
+					<td>
+						<input type="text" size="90%" />
+					</td>
+				</tr>
+				<tr>
+					<td>发货地址：</td>
+					<td>
+						<input type="text" size="90%" />
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td align="center" colspan="2">
+						<img src="imges/submit.jpg" align="center" onclick="register()" />
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</body>
+
+</html>
