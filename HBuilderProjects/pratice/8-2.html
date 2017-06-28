@@ -140,16 +140,21 @@
 				var parDiv = document.getElementById("parDiv");
 				parDiv.replaceChild(parDiv.firstChild,parDiv.lastChild);
 			}
+			function getDivCount(){
+				var parDiv = document.getElementById("parDiv");
+				alert(parDiv.childElementCount);
+			}
 		</script>
 	</head>
 
 	<body>
 		<hr>
 		<h1>DOM操作</h1>
-		<input type="button" value="增加一个div" onclick="addDiv();" />
-		<input type="button" value="在之前增加一个div" onclick="iseBef()" />
-		<input type="button" value="删除第一个孩子节点div" onclick="removDiv()" />
-		<input type="button" value="用第一个孩子节点替换掉最后一个孩子节点" onclick="replaceDiv()" />
+		<input type="button" value="在最后面增加一个div" onclick="addDiv();" />
+		<input type="button" value="在最前面增加一个div" onclick="iseBef();" />
+		<input type="button" value="删除第一个孩子节点div" onclick="removDiv();" />
+		<input type="button" value="用第一个孩子节点替换掉最后一个孩子节点" onclick="replaceDiv();" />
+		<input type="button" value="获得div元素的个数" onclick="getDivCount();" />
 		<div class="dom_div" id="parDiv" >
 			<div class="dom_div_div" id="div1" >
 				<h3>Hello div dom操作</h3>
