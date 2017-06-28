@@ -145,9 +145,58 @@
 				alert(parDiv.childElementCount);
 			}
 		</script>
+		
 	</head>
 
 	<body>
+		<hr>
+		<h1>显示下拉级联列表信息</h1>
+		<h3>收获地址</h3>
+		<p>省份选择：		
+			<select id="selPro" style="width: 150px;" onchange="changePro();">
+				<option>===请选择省份===</option>
+			</select>
+			<select id="selCity" style="width: 150px;" onchange="showSeleInfo();">
+				<option>===请选择城市===</option>
+			</select>
+		</p>
+		<p><div id="showInfo"></div></p>
+		<script>
+			var area = new Array();
+			area["广西"] = ['南宁市','柳州市','桂林市'];
+			area["湖南省"] = ['长沙市','株洲市','湘潭市'];
+			area["广东省"] = ['广东省','韶关市','深圳市'];
+			
+			//1、初始化
+			(function(){
+				var selObj = document.getElementById("selPro");
+				for (key in area) {
+					//console.log(key);
+					selObj.add(new Option(key,key),null);
+				}
+			})();
+			
+			//改变省份后，改变城市选项
+			function changePro(){
+				var name = document.getElementById("selPro").value;
+				var citys = area[name];
+				var opCity = document.getElementById("selCity");
+				
+				opCity.options.length = 0;//清除选择框
+				
+				opCity.add(new Option('===选择城市===',-1),null);
+				for (ckey in citys) {
+					console.log(">>>>>"+ckey);
+					opCity.add(new Option(citys[ckey],citys[ckey]),null);
+				}
+			}
+			//在选择城市后顺便显示出来
+			function showSeleInfo(){
+				var selPro = document.getElementById("selPro");
+				var selCity = document.getElementById("selCity");
+				document.getElementById("showInfo").innerHTML = "选择的省份为："+selPro.value+"选择的城市为："+selCity.value;
+			}
+		</script>
 		<hr>
 		<h1>DOM操作</h1>
 		<input type="button" value="在最后面增加一个div" onclick="addDiv();" />
