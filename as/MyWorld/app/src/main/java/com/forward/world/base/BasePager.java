@@ -17,6 +17,8 @@ public abstract class BasePager {
      * 接收各个页面的实例
      */
     public View rootView;
+    public boolean isInitData;
+
     public BasePager(Context context){
         this.context = context;
         this.rootView = initView();
