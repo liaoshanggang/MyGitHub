@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2. P204 练习（非正则表达式的验证方式，也要了解）</title>
+		<script>
+			function validate_mail(){
+				var mail = document.getElementById("email").value;
+				if(mail==""){
+					alert("Email不能为空！");
+					return false;
+				}
+				if(mail.indexOf("@")==-1){
+					alert("Email格式不正确\n必须包含“@”！");
+					return false;
+				}
+				if(mail.indexOf("."==-1)){
+					alert("Email格式不正确！\n必须包含“.”！");
+					return false;
+				}
+				return true;
+			}
+		</script>
+		<script>
+			function validate(){
+				var mail = document.getElementById("email1").value;
+				if(mail==""){
+					alert("Mail不能为空！");
+					return false;
+				}
+				if(mail.indexOf("@")==-1){
+					alert("Mail格式不正确\n必须包含“@”！");
+					return false;
+				}
+				if(mail.indexOf(".")==-1){
+					alert("Mail格式不正确！\n必须包含“.”！");
+					return false;
+				}
+				//验证密码
+				var pwd = document.getElementById("pwd").value;
+				if(pwd==""){
+					alert("密码不能为空！");
+					return false;
+				}
+				if(pwd.length<6){
+					alert("密码长度必须达到6个字符！");
+					return false;
+				}
+				var repwd = document.getElementById("repwd").value;
+				if(pwd!=repwd){
+					alert("两次输入密码不一致\n请重新输入！");
+					return false;
+				}
+				var user = document.getElementById("user").value;
+				if(user==""){
+					alert("姓名不能为空！");
+					return false;
+				}
+				for (var i=0;i<user.length;i++) {
+					var j= user.substring(i,i+1);
+					if(j==" "){
+						alert("姓名中不能包含空格!");
+						return false;
+					}
+				}
+				return true;
+			}
+		</script>
+	</head>
+	<body>
+		<!--图10.1必填项、邮箱合法性验证-->
+		<form action="" method="post" onsubmit="return validate_mail();">
+			Email:<input type="text" id="email" size="30" />
+			<input type="submit" value="提交" />
+		</form>
+		<hr>
+		<!--图10.5《网上书城》简易注册页面-->
+		<form action="" method="post" name="regForm" onsubmit="return validate();">
+			<tr>
+				<td align="right">Email</td>
+				<td><input type="text" id="email1" size="28"/></td>
+			</tr>
+			<tr>
+				<td align="right">输入密码：</td>
+				<td><input type="password" id="pwd" size="30"/></td>
+			</tr>
+			<tr>
+				<td align="right">请再次确认密码：</td>
+				<td><input type="password" id="repwd" size="30"/></td>
+			</tr>
+			<tr>
+				<td align="right">姓名：</td>
+				<td><input type="text" id="user" size="28"/></td>
+			</tr>
+			<tr>
+				<td align="right">性别：</td>
+				<td><input type="radio" name="sex" value="1" checked="checked"/>男
+				<input type="radio" name="sex" value="1"/>女
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" id="submit" value="注册"/></td>
+			</tr>
+		</form>
+		<hr>
+		<form action="" method="post" onsubmit="return validate_mail1();">
+			<p>Email:
+				<input type="text" id="email2" size="30" value="请输入用于注册的电子邮箱" onfocus="focusMail()" onblur="blurMail()"/>
+			</p>
+			<p>
+				输入密码：<input type="password" id="pwd" size="28" />
+			</p>
+		</form>
+	</body>
+</html>
