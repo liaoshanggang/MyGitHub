@@ -20,5 +20,7 @@
 	<h3><a href="netBookReg.jsp">网上书城注册</a></h3>
 	<hr>
 	<h3><a href="login.jsp">重定向和请求转发</a></h3>
+	<hr>
+	<h3><a href="phoneLogin.jsp">手机充值</a></h3>
 </body>
 </html>
