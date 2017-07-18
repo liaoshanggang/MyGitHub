@@ -75,17 +75,45 @@ if(pageIndex>1){ %>
 <a href="index.jsp?pageIndex=<%=pageNums %>">尾页</a><br>
 <%
 } %>
-<hr>
+<br><hr>
 当前页数为：<%=pageIndex %> 数据库里总记录数为：<%=nums %> 总页数为：<%=pageNums %> 每次取<%=records %>条记录<br>
-<hr>
+<br><hr>
 <div>
+<%
+
+//每页显示10个链接，共多少页
+int sumpages = pageNums / 10; 
+if(pageIndex>6){
+	for(int j=pageIndex-5;j<=pageIndex+4;j++){
+		%><a href="index.jsp?pageIndex=<%=j%>">
+		<span class="index">
+		<%out.print(j); %>
+		</span></a><%
+		}%><%
+}else{
+	for(int j=1;j<=10;j++){
+		%><a href="index.jsp?pageIndex=<%=j%>">
+		<span class="index">
+		<%out.print(j); %>
+		</span></a><%
+		}
+}%>
+<%-- for(int j=pageIndex;j<=pageIndex+10;j++){
+%><a href="index.jsp?pageIndex=<%=j%>">
+<span class="index">
+<%out.print(j); %>
+</span></a><%
+}%> --%>
+
+<%-- 
 <%for(int j=1;j<=pageNums;j++){
 %><a href="index.jsp?pageIndex=<%=j%>">
 <span class="index">
 <%out.print(j); %>
 </span></a><%
-}%>
+}%>	 --%>
 </div>
+<br>
 <br>
 <hr>
 <%

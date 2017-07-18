@@ -21,7 +21,7 @@ public class EmpDao {
 		ResultSet rs = null;
 		
 		conn = dbUtil.getConnection();
-		String sql = "SELECT COUNT(*) FROM employees";
+		String sql = "SELECT COUNT(*) FROM copy_emp";
 
 		int nums = -1;
 		try {
@@ -48,7 +48,7 @@ public class EmpDao {
 		ResultSet rs = null;
 		
 		conn = dbUtil.getConnection();
-		String sql = "SELECT * FROM (SELECT ROWNUM rn,emp.* FROM (SELECT * FROM employees ORDER BY hire_date) emp WHERE ROWNUM <= ?) WHERE rn > ?";
+		String sql = "SELECT * FROM (SELECT ROWNUM rn,emp.* FROM (SELECT * FROM copy_emp ORDER BY hire_date) emp WHERE ROWNUM <= ?) WHERE rn > ?";
 
 		List<Emp> emps = new ArrayList<Emp>();
 		try {
