@@ -12,14 +12,13 @@
 
 .head {
 	height: 80px;
-	background: blueviolet;
+	//background: blueviolet;
 }
 
 .body {
-	/* background-image: url(images/ban4.jpg); */
 	height: 500px;
 	width: auto;
-	background: #008000;
+	//background: #008000;
 }
 
 .foot {
@@ -36,11 +35,13 @@ width:150px;
 	<div class="head">
 	<h1>Welcome register!</h1>
 	<h3 align="right"><a href="atmLogin.jsp">has account？Please login in</a></h3>
+	<%-- <h6 align="right"><%@ include file="head.jsp" %></h6> --%>
 	</div>
+	<hr size=1px>
 	<div class="body">
 		<div>
 			
-			<form method="post" action="registerCtrl.jsp">
+			<form method="post" action="LoginRegisterServlet?m=register">
 					<h1>Atm注册</h1>
 					<table>
 						<tr>

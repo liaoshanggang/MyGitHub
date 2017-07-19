@@ -1,7 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <html>
 
 	<head>
-		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title></title>
 		<style>
 			* {
@@ -73,11 +75,12 @@
 	<body>
 		<div class="head">
 			<h1 class="head_text">Welcome login!</h1>
+			<%-- <h6 align="right"><%@ include file="head.jsp" %></h6> --%>
 			<h6 align="right">登录页面，调查问卷</h6>
 		</div>
 		<div class="body">
 			<div class="content">
-				<form method="post" action="loginCtrl.jsp">
+				<form method="post" action="LoginRegisterServlet?m=login">
 				<h1>帐号登录</h1>
 				<table>
 					<tr>

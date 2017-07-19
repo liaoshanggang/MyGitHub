@@ -15,4 +15,14 @@
     <res-type>javax.sql.DataSource</res-type>
     <res-auth>Container</res-auth>
   </resource-ref>
+  <servlet>
+    <description></description>
+    <display-name>LoginRegisterServlet</display-name>
+    <servlet-name>LoginRegisterServlet</servlet-name>
+    <servlet-class>com.forward.servlet.LoginRegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginRegisterServlet</servlet-name>
+    <url-pattern>/LoginRegisterServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
