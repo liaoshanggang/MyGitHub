@@ -12,9 +12,11 @@ div{
 	padding: 0px 50px 10px 50px;
 }
 </style>
+
 </head>
 <body>
 <div><h3 align="right"><%@ include file="head.jsp" %></h3></div>
+
 <%-- <%
 BankCard bankCard = (BankCard) session.getAttribute("actCardInfo");
 if (bankCard!=null) {

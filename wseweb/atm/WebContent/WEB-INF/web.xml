@@ -17,12 +17,12 @@
   </resource-ref>
   <servlet>
     <description></description>
-    <display-name>LoginRegisterServlet</display-name>
-    <servlet-name>LoginRegisterServlet</servlet-name>
-    <servlet-class>com.forward.servlet.LoginRegisterServlet</servlet-class>
+    <display-name>UserServlet</display-name>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.forward.servlet.UserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>LoginRegisterServlet</servlet-name>
-    <url-pattern>/LoginRegisterServlet</url-pattern>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -41,7 +41,7 @@ width:150px;
 	<div class="body">
 		<div>
 			
-			<form method="post" action="LoginRegisterServlet?m=register">
+			<form method="post" action="UserServlet?m=register">
 					<h1>Atm注册</h1>
 					<table>
 						<tr>

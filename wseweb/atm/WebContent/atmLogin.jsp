@@ -80,7 +80,7 @@
 		</div>
 		<div class="body">
 			<div class="content">
-				<form method="post" action="LoginRegisterServlet?m=login">
+				<form method="post" action="UserServlet?m=login">
 				<h1>帐号登录</h1>
 				<table>
 					<tr>
