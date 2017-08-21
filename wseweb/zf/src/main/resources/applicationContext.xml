@@ -12,6 +12,7 @@
             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd   
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd   
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd"> 
+	<!-- 团队开发- a-dao.xml-service.xml-*.xml -->
 	<!-- 1、 -->
 	<!-- 
 	启用注解
@@ -96,6 +97,7 @@
 		read-only="false"是否为只读事务，在只读事务的上下中只能查询不能执行CUD操作
 		rollback-for="java.lang.Exception"当事务遇到什么类型的异常时事务将回滚
 	-->
+	<!-- 做什么 -->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="insert*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception" />
@@ -109,11 +111,11 @@
 			<tx:method name="*" propagation="SUPPORTS" read-only="true"/>
 		</tx:attributes>
 	</tx:advice>
-	
+	<!-- 在哪做 -->
 	<!-- 这个包和子包当中的所有的类和方法 -->
 	<!-- AOP事务 -->
 	<aop:config>
-		<!--把事务控制在Service层-->
+		<!--把事务控制在Service层，这个业务方法有可能要多个数据库操作完成，所有操作要在一个事务完成-->
 		<aop:pointcut id="txPointcut" expression="execution(public * com.lanqiao.service..*.*(..))" />
 		<!-- 连接起来 --> 
 		<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice" />

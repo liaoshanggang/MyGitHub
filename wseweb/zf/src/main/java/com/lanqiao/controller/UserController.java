@@ -16,6 +16,7 @@ import com.lanqiao.vo.UserInfo;
  * @Controller注解来标识本类是一个SpringMVC Controller 对象
  */
 @Controller
+@RequestMapping("/user")
 public class UserController {
 
 	//如果一个Controller类需要用到多个Service，那么你可注入多个Service
@@ -30,7 +31,7 @@ public class UserController {
 	 * @param modelMap 其作用域为request
 	 * @return
 	 */
-	@RequestMapping(value={"/user/login"},method={RequestMethod.POST})
+	@RequestMapping(value={"/login"},method={RequestMethod.POST})
 	public String login(UserInfo user,ModelMap modelMap,HttpSession session){
 		System.out.println(user);
 		UserInfo userInfo = this.userService.selectForLogin(user);
@@ -39,6 +40,6 @@ public class UserController {
 		}
 		session.setAttribute("logUser", userInfo);
 		modelMap.addAttribute("user", userInfo);
-		return "list";
+		return "redirect:/house/list";
 	}
 }

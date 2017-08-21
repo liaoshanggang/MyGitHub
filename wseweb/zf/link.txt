@@ -1,1 +1,12 @@
 https://github.com/liaoshanggang/RentingSystem
+http://localhost:8080/zf/
+House [id=11, userId=2, streetId=1003, typeId=null, room=2, hall=1, title=出租健翔桥二居室, description=电器齐全，交通便利, price=1100.0, pubdate=Sun Aug 20 17:49:16 CST 2017, telephone=03114525655, contact=伊先生]
+House [id=10, userId=1, streetId=1002, typeId=null, room=3, hall=1, title=出租鼓楼地铁附近/鼓楼西大街!, description=房子是一个单间,和一个厨房,两间都能洗澡,电视,冰箱,洗衣机,空调什么都齐全,有意者尽快与我联系! , price=1500.0, pubdate=Sun Aug 20 17:49:16 CST 2017, telephone=15801424883, contact=赵先生]
+House [id=9, userId=2, streetId=1002, typeId=null, room=3, hall=2, title=北三环北太平庄蓟门桥蓟门里小区两居, description=房子地理位置好,就在三环边上,有几座大学,小区环境也相当好,屋内家电家具全都有.这的房子这个价可是最便宜的了,好房子快快来电话吧!7月10号以后能住.中介勿扰!, price=2200.0, pubdate=Sun Aug 20 17:49:16 CST 2017, telephone=13661193065, contact=钟小姐]
+House [id=8, userId=3, streetId=1001, typeId=null, room=4, hall=2, title=后现代城一居室出租, description=房间干净家具电器全有.24小时保安.24小时热水.交通购物方便.房子紧邻万达广场.华贸.阳光100.后现代.房子非常适合在附近上班的人士居住., price=2400.0, pubdate=Sun Aug 20 17:49:16 CST 2017, telephone=13240775017, contact=时先生]
+House [id=7, userId=2, streetId=1001, typeId=null, room=3, hall=1, title=北太平庄房屋出租, description=房子是新房,新装修,两个卫生间,一个客厅,有独立卫生间,环境好,交通方便,欢迎入住., price=1000.0, pubdate=Sun Aug 20 17:49:16 CST 2017, telephone=13141406453, contact=米女士]
+House [id=6, userId=3, streetId=1001, typeId=null, room=3, hall=1, title=西便门北二区出租3室1厅, description=西便门住宅小区北二区，简装修、3居1厅2卫、带阳台，新房从未居住过，小区环境优雅，交通购物方便，离城铁走路需5分钟。价格可商议！有意者请速于我联系。, price=1900.0, pubdate=Sun Aug 20 17:49:16 CST 2017, telephone=13311582033, contact=陈先生]
+House [id=5, userId=3, streetId=1001, typeId=null, room=4, hall=2, title=便宜出租前门四合院, description=如此宝地，如此好房，快抢，先来先得, price=2500.0, pubdate=Sun Aug 20 17:49:16 CST 2017, telephone=13456789023, contact=赵大宝]
+House [id=4, userId=3, streetId=1001, typeId=null, room=4, hall=2, title=出租2居, description=冲着我你也得来, price=2100.0, pubdate=Sun Aug 20 17:49:16 CST 2017, telephone=87654321, contact=伊先生]
+House [id=3, userId=1, streetId=1001, typeId=null, room=3, hall=1, title=健翔桥一居出租了, description=房间干净家具电器全有.24小时保安.24小时热水.交通购物方便.房子紧邻万达广场.华贸.阳光100.后现代.房子非常适合在附近上班的人士居住., price=1200.0, pubdate=Sun Aug 20 17:49:16 CST 2017, telephone=133123123321, contact=刘景杨]
+House [id=2, userId=2, streetId=1001, typeId=null, room=3, hall=1, title=北大附近招合租, description=水电煤气，欢迎看房，现住一人，再招一人，限女生，要求：年龄18－22岁，身高165左右，相貌好，性格开朗，脾气好，未婚，没有男朋友。帅哥＋好房速抢！, price=1000.0, pubdate=Sun Aug 20 17:49:16 CST 2017, telephone=010-12345678, contact=周星星]

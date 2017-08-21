@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 名字空间,mybatis高版本后namespace属性是必须的，其作用用来区分每个SQL映射文件中的语句,
+也就说在一个项目里可能会在不同的SQL 映射文件中存在相同的语句ID -->
+<mapper namespace="com.lanqiao.mapper.HouseMapper">
+
+	<resultMap type="house" id="baseResultMap">
+		<id property="id" column="ID" />
+		<result property="userId" column="USER_ID"/>
+		<result property="streetId" column="STREET_ID"/>
+		<result property="room" column="TYPE_ID"/>
+		<result property="userId" column="ROOM"/>
+		<result property="hall" column="HALL"/>
+		<result property="title" column="TITLE"/>
+		<result property="description" column="DESCRIPTION"/>
+		<result property="price" column="PRICE"/>
+		<result property="pubdate" column="PUBDATE"/>
+		<result property="telephone" column="TELEPHONE"/>
+		<result property="contact" column="CONTACT"/>
+	</resultMap>
+	
+	<sql id="where_selective">
+		<where>
+			<if test="queryObject.title !=null and queryObject.title.trim().length>0">
+				<bind name="pattern" value="'%'+ queryObject.title+'%'"/>
+				and title like #{pattern}
+			</if>
+			<if test="queryObject.streetId !=null">
+				and STREET_ID=#{queryObject.streetId}
+			</if>
+			<if test="queryObject.lowPrice !=null">
+				and PRICE>=#{queryObject.lowPrice}
+			</if>
+			<if test="queryObject.hiPrice !=null">
+				<![CDATA[and PRICE<=#{queryObject.hiPrice}]]>
+			</if>
+		</where>
+	</sql>
+	
+	<!-- 根据房屋搜索信息查找房屋信息 -->
+	<select id="selectSelective" parameterType="page" resultMap="baseResultMap" >
+	select * from (
+		select a.*,rownum rn from (
+			select * from HOUSE <include refid="where_selective"/> ORDER BY PUBDATE DESC
+		) a where <![CDATA[rownum<=#{lastIndex}]]> 
+	) where rn>=#{firstIndex}
+	</select>
+	
+	<!-- 根据房屋搜索信息查找房屋信息记录数 -->
+	<select id="countForSelective" parameterType="page" resultType="int" >
+		select count(id) from House <include refid="where_selective"/> 
+	</select>
+	
+	<!-- 查找区信息 -->
+	<select id="selectDistrict" resultType="district">
+		select * from DISTRICT
+	</select>
+	
+	<!-- 根据区号id查找街道信息 -->
+	<select id="selectStreetById" parameterType="int" resultType="street" >
+		select * from STREET where DISTRICT_ID=#{id}
+	</select>
+</mapper>
