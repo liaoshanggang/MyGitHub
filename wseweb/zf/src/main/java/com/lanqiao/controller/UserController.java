@@ -1,10 +1,14 @@
 package com.lanqiao.controller;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.lanqiao.service.IUserService;
 import com.lanqiao.vo.UserInfo;
 
 /*
@@ -13,6 +17,11 @@ import com.lanqiao.vo.UserInfo;
  */
 @Controller
 public class UserController {
+
+	//如果一个Controller类需要用到多个Service，那么你可注入多个Service
+	@Resource
+	IUserService userService;
+	
 	//输入框的名字和
 	// /user/login， 只能处理post方式的请示，不指定则所请求方式都可地
 	 //使用@RequestMapping注解来映射请求的URL。
@@ -22,9 +31,14 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value={"/user/login"},method={RequestMethod.POST})
-	public String login(UserInfo user,ModelMap modelMap){
+	public String login(UserInfo user,ModelMap modelMap,HttpSession session){
 		System.out.println(user);
-		modelMap.addAttribute("user", user);
+		UserInfo userInfo = this.userService.selectForLogin(user);
+		if(userInfo==null){
+			return "redirect:/login_form.jsp";
+		}
+		session.setAttribute("logUser", userInfo);
+		modelMap.addAttribute("user", userInfo);
 		return "list";
 	}
 }

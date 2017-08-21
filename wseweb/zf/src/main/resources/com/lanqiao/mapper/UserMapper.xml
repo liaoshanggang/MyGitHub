@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 名字空间,mybatis高版本后namespace属性是必须的，其作用用来区分每个SQL映射文件中的语句,
+也就说在一个项目里可能会在不同的SQL 映射文件中存在相同的语句ID -->
+<mapper namespace="com.lanqiao.mapper.UserMapper">
+	
+	 <resultMap id="baseResultMap" type="userInfo">
+	 	<id property="userId" column="USER_ID" />
+	 	<result property="username" column="USER_NAME"/>
+	 	<result property="password" column="PASSWORD"/>
+	 	<result property="tel" column="TEL"/>
+	 	<result property="email" column="EMAIL"/>
+	 </resultMap>
+	 
+	
+	<select id="login" parameterType="userInfo" resultMap="baseResultMap">
+		select * from USERSINFO where user_name=#{username} and password=#{password}
+	</select>
+	
+	<!-- <select id="selectByPrimaryKey" parameterType="int" resultMap="baseResultMap">
+		SELECT * FROM SCOTT.EMP where empno=#{id}
+	</select>
+	 -->
+</mapper>

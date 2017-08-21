@@ -8,7 +8,16 @@
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
 	<display-name>springmvc-zf</display-name>
-
+<!-- 全局上下文参数 這個參數名告訴上下文在哪 -->
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+ <!-- 這個類會找上面的 -->
+  <!-- 加载applicationContext.xml配置文件 -->
+  <listener>
+ 	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 	<!-- 2、 -->
 	<!-- 防止不良程序造成的内存溢出 -->
 	<listener>

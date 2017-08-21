@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 引入外部的properties文件，在此文件配置数据库的(driver,url,username,password) -->
+	<properties resource="database.properties"></properties>
+	
+	<!-- mybatis的一些特性的设定 -->
+	<settings>
+	  <setting name="logImpl" value="LOG4J"/>
+	</settings>
+	
+</configuration>
