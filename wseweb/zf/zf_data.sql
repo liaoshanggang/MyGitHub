@@ -1,5 +1,5 @@
 
---ç”¨æˆ·è¡¨ä¸»é”®åºåˆ—
+--ÓÃ»§±íÖ÷¼üĞòÁĞ
 create sequence USERSINFO_SEQ
 start with 2;
 
@@ -21,58 +21,58 @@ insert into USERSINFO values(USERSINFO_SEQ.NEXTVAL,'admin','admin','18623423090'
 insert into USERSINFO values(USERSINFO_SEQ.NEXTVAL,'manager','manager','18623423090','65538815@qq.com');	
 	
   SELECT * FROM USERSINFO;
-  
---åˆ›å»ºåŒºå¿è¡¨
+  select * from HOUSE WHERE USER_ID=3
+--´´½¨ÇøÏØ±í
 DROP TABLE DISTRICT;
 create table DISTRICT
 (
   ID   NUMBER not null PRIMARY KEY,
   NAME VARCHAR2(50) not null
 );
-insert into DISTRICT (ID, NAME) values (101, 'æµ·æ·€');
-insert into DISTRICT (ID, NAME) values (102, 'æœé˜³');
-insert into DISTRICT (ID, NAME) values (103, 'çŸ³æ™¯å±±');
-insert into DISTRICT (ID, NAME) values (106, 'ä¸°å°');
-insert into DISTRICT (ID, NAME) values (100, 'ä¸œåŸ');
-insert into DISTRICT (ID, NAME) values (104, 'è¥¿åŸ');
+insert into DISTRICT (ID, NAME) values (101, 'º£µí');
+insert into DISTRICT (ID, NAME) values (102, '³¯Ñô');
+insert into DISTRICT (ID, NAME) values (103, 'Ê¯¾°É½');
+insert into DISTRICT (ID, NAME) values (106, '·áÌ¨');
+insert into DISTRICT (ID, NAME) values (100, '¶«³Ç');
+insert into DISTRICT (ID, NAME) values (104, 'Î÷³Ç');
 commit;
 select * from district order by id;
 
---åˆ›å»ºè¡—é“è¡¨
+--´´½¨½ÖµÀ±í
 DROP TABLE STREET;
 create table STREET
 (
   ID          NUMBER not null PRIMARY KEY,
   NAME        VARCHAR2(50),
-  DISTRICT_ID NUMBER NOT NULL REFERENCES DISTRICT(ID)	--å¤–é”®ï¼Œå¼•ç”¨åŒºå¿
+  DISTRICT_ID NUMBER NOT NULL REFERENCES DISTRICT(ID)	--Íâ¼ü£¬ÒıÓÃÇøÏØ
 );
-insert into STREET (ID, NAME, DISTRICT_ID) values (1000, 'å¹³å®‰è·¯', 101);
-insert into STREET (ID, NAME, DISTRICT_ID) values (1001, 'ä¸­å…³æ‘å¤§è¡—', 101);
-insert into STREET (ID, NAME, DISTRICT_ID) values (1002, 'å­¦é™¢è·¯', 102);
-insert into STREET (ID, NAME, DISTRICT_ID) values (1003, 'æœé˜³è·¯', 102);
+insert into STREET (ID, NAME, DISTRICT_ID) values (1000, 'Æ½°²Â·', 101);
+insert into STREET (ID, NAME, DISTRICT_ID) values (1001, 'ÖĞ¹Ø´å´ó½Ö', 101);
+insert into STREET (ID, NAME, DISTRICT_ID) values (1002, 'Ñ§ÔºÂ·', 102);
+insert into STREET (ID, NAME, DISTRICT_ID) values (1003, '³¯ÑôÂ·', 102);
 commit;
 select * from STREET order by id;
 
---å‡ºç§Ÿç±»å‹è¡¨
+--³ö×âÀàĞÍ±í
 DROP TABLE TYPES;
 create table TYPES
 (
   ID   NUMBER not null PRIMARY KEY,
   NAME VARCHAR2(10) not null
 );
-insert into TYPES (ID, NAME) values (0, 'ä¸é™');
-insert into TYPES (ID, NAME) values (1, 'åœ°ä¸‹å®¤');
-insert into TYPES (ID, NAME) values (2, 'å¹³æˆ¿');
-insert into TYPES (ID, NAME) values (3, 'æ™®é€šä½å®…');
-insert into TYPES (ID, NAME) values (4, 'å…¬å¯“');
-insert into TYPES (ID, NAME) values (5, 'åˆ«å¢…');
+insert into TYPES (ID, NAME) values (0, '²»ÏŞ');
+insert into TYPES (ID, NAME) values (1, 'µØÏÂÊÒ');
+insert into TYPES (ID, NAME) values (2, 'Æ½·¿');
+insert into TYPES (ID, NAME) values (3, 'ÆÕÍ¨×¡Õ¬');
+insert into TYPES (ID, NAME) values (4, '¹«Ô¢');
+insert into TYPES (ID, NAME) values (5, '±ğÊû');
 commit;
 
 
 create sequence HOUSE_SEQ
 start with 1;
 
---åˆ›å»ºå‡ºç§Ÿä¿¡æ¯è¡¨
+--´´½¨³ö×âĞÅÏ¢±í
 DROP TABLE HOUSE;
 create table HOUSE
 (
@@ -80,46 +80,46 @@ create table HOUSE
   USER_ID     NUMBER REFERENCES USERSINFO(USER_ID),
   STREET_ID	  NUMBER REFERENCES STREET(ID),
   TYPE_ID     NUMBER  REFERENCES TYPES(ID),
-  ROOM		  NUMBER,   --å‡ å®¤
-  HALL		  NUMBER,   --å‡ å…
-  TITLE       VARCHAR2(50), --æ ‡é¢˜
+  ROOM		  NUMBER,   --¼¸ÊÒ
+  HALL		  NUMBER,   --¼¸Ìü
+  TITLE       VARCHAR2(50), --±êÌâ
   DESCRIPTION VARCHAR2(2000),
   PRICE       NUMBER,
-  PUBDATE     timestamp default systimestamp, --å‘å¸ƒæ—¶é—´
-  TELEPHONE   VARCHAR2(13),     --è”ç³»ç”µè¯
-  CONTACT     VARCHAR2(10)      --è”ç³»äºº
+  PUBDATE     timestamp default systimestamp, --·¢²¼Ê±¼ä
+  TELEPHONE   VARCHAR2(13),     --ÁªÏµµç»°
+  CONTACT     VARCHAR2(10)      --ÁªÏµÈË
 );
 --ALTER TABLE HOUSE MODIFY CONTACT VARCHAR2(10);
 
 insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price,Telephone,Contact) 
-  values(HOUSE_SEQ.NEXTVAL,4,1001,3,2,1,'åŒ—å¤§é™„è¿‘æ‹›åˆç§Ÿ','æ°´ç”µç…¤æ°”ï¼Œæ¬¢è¿çœ‹æˆ¿ï¼Œç°ä½ä¸€äººï¼Œå†æ‹›ä¸€äººï¼Œé™å¥³ç”Ÿï¼Œè¦æ±‚ï¼šå¹´é¾„18ï¼22å²ï¼Œèº«é«˜165å·¦å³ï¼Œç›¸è²Œå¥½ï¼Œæ€§æ ¼å¼€æœ—ï¼Œè„¾æ°”å¥½ï¼Œæœªå©šï¼Œæ²¡æœ‰ç”·æœ‹å‹ã€‚å¸…å“¥ï¼‹å¥½æˆ¿é€ŸæŠ¢ï¼',1000.00,'010-12345678','å‘¨æ˜Ÿæ˜Ÿ');
+  values(HOUSE_SEQ.NEXTVAL,4,1001,3,2,1,'±±´ó¸½½üÕĞºÏ×â','Ë®µçÃºÆø£¬»¶Ó­¿´·¿£¬ÏÖ×¡Ò»ÈË£¬ÔÙÕĞÒ»ÈË£¬ÏŞÅ®Éú£¬ÒªÇó£ºÄêÁä18£­22Ëê£¬Éí¸ß165×óÓÒ£¬ÏàÃ²ºÃ£¬ĞÔ¸ñ¿ªÀÊ£¬Æ¢ÆøºÃ£¬Î´»é£¬Ã»ÓĞÄĞÅóÓÑ¡£Ë§¸ç£«ºÃ·¿ËÙÇÀ£¡',1000.00,'010-12345678','ÖÜĞÇĞÇ');
 
 insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price,Telephone,Contact)  
-  values(HOUSE_SEQ.NEXTVAL,4,1001,3,1,1,'å¥ç¿”æ¡¥ä¸€å±…å‡ºç§Ÿäº†','æˆ¿é—´å¹²å‡€å®¶å…·ç”µå™¨å…¨æœ‰.24å°æ—¶ä¿å®‰.24å°æ—¶çƒ­æ°´.äº¤é€šè´­ç‰©æ–¹ä¾¿.æˆ¿å­ç´§é‚»ä¸‡è¾¾å¹¿åœº.åè´¸.é˜³å…‰100.åç°ä»£.æˆ¿å­éå¸¸é€‚åˆåœ¨é™„è¿‘ä¸Šç­çš„äººå£«å±…ä½.',1200.00,'133123123321','åˆ˜æ™¯æ¨');
+  values(HOUSE_SEQ.NEXTVAL,4,1001,3,1,1,'½¡ÏèÇÅÒ»¾Ó³ö×âÁË','·¿¼ä¸É¾»¼Ò¾ßµçÆ÷È«ÓĞ.24Ğ¡Ê±±£°².24Ğ¡Ê±ÈÈË®.½»Í¨¹ºÎï·½±ã.·¿×Ó½ôÁÚÍò´ï¹ã³¡.»ªÃ³.Ñô¹â100.ºóÏÖ´ú.·¿×Ó·Ç³£ÊÊºÏÔÚ¸½½üÉÏ°àµÄÈËÊ¿¾Ó×¡.',1200.00,'133123123321','Áõ¾°Ñî');
 
 insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price,Telephone,Contact)  
-  values(HOUSE_SEQ.NEXTVAL,4,1001,4,3,2,'å‡ºç§Ÿ2å±…','å†²ç€æˆ‘ä½ ä¹Ÿå¾—æ¥',2100.00,'87654321','ä¼Šå…ˆç”Ÿ');
+  values(HOUSE_SEQ.NEXTVAL,4,1001,4,3,2,'³ö×â2¾Ó','³å×ÅÎÒÄãÒ²µÃÀ´',2100.00,'87654321','ÒÁÏÈÉú');
 
 insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price,Telephone,Contact)  
-  values(HOUSE_SEQ.NEXTVAL,4,1001,4,3,2,'ä¾¿å®œå‡ºç§Ÿå‰é—¨å››åˆé™¢','å¦‚æ­¤å®åœ°ï¼Œå¦‚æ­¤å¥½æˆ¿ï¼Œå¿«æŠ¢ï¼Œå…ˆæ¥å…ˆå¾—',2500.00,'13456789023','èµµå¤§å®');
+  values(HOUSE_SEQ.NEXTVAL,4,1001,4,3,2,'±ãÒË³ö×âÇ°ÃÅËÄºÏÔº','Èç´Ë±¦µØ£¬Èç´ËºÃ·¿£¬¿ìÇÀ£¬ÏÈÀ´ÏÈµÃ',2500.00,'13456789023','ÕÔ´ó±¦');
 
 insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price,Telephone,Contact)  
-  values(HOUSE_SEQ.NEXTVAL,4,1001,3,3,1,'è¥¿ä¾¿é—¨åŒ—äºŒåŒºå‡ºç§Ÿ3å®¤1å…','è¥¿ä¾¿é—¨ä½å®…å°åŒºåŒ—äºŒåŒºï¼Œç®€è£…ä¿®ã€3å±…1å…2å«ã€å¸¦é˜³å°ï¼Œæ–°æˆ¿ä»æœªå±…ä½è¿‡ï¼Œå°åŒºç¯å¢ƒä¼˜é›…ï¼Œäº¤é€šè´­ç‰©æ–¹ä¾¿ï¼Œç¦»åŸé“èµ°è·¯éœ€5åˆ†é’Ÿã€‚ä»·æ ¼å¯å•†è®®ï¼æœ‰æ„è€…è¯·é€Ÿäºæˆ‘è”ç³»ã€‚',1900.00,'13311582033','é™ˆå…ˆç”Ÿ');
+  values(HOUSE_SEQ.NEXTVAL,4,1001,3,3,1,'Î÷±ãÃÅ±±¶şÇø³ö×â3ÊÒ1Ìü','Î÷±ãÃÅ×¡Õ¬Ğ¡Çø±±¶şÇø£¬¼ò×°ĞŞ¡¢3¾Ó1Ìü2ÎÀ¡¢´øÑôÌ¨£¬ĞÂ·¿´ÓÎ´¾Ó×¡¹ı£¬Ğ¡Çø»·¾³ÓÅÑÅ£¬½»Í¨¹ºÎï·½±ã£¬Àë³ÇÌú×ßÂ·Ğè5·ÖÖÓ¡£¼Û¸ñ¿ÉÉÌÒé£¡ÓĞÒâÕßÇëËÙÓÚÎÒÁªÏµ¡£',1900.00,'13311582033','³ÂÏÈÉú');
 
 insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price,Telephone,Contact)  
-  values(HOUSE_SEQ.NEXTVAL,3,1001,3,2,1,'åŒ—å¤ªå¹³åº„æˆ¿å±‹å‡ºç§Ÿ','æˆ¿å­æ˜¯æ–°æˆ¿,æ–°è£…ä¿®,ä¸¤ä¸ªå«ç”Ÿé—´,ä¸€ä¸ªå®¢å…,æœ‰ç‹¬ç«‹å«ç”Ÿé—´,ç¯å¢ƒå¥½,äº¤é€šæ–¹ä¾¿,æ¬¢è¿å…¥ä½.',1000.00,'13141406453','ç±³å¥³å£«');
+  values(HOUSE_SEQ.NEXTVAL,3,1001,3,2,1,'±±Ì«Æ½×¯·¿Îİ³ö×â','·¿×ÓÊÇĞÂ·¿,ĞÂ×°ĞŞ,Á½¸öÎÀÉú¼ä,Ò»¸ö¿ÍÌü,ÓĞ¶ÀÁ¢ÎÀÉú¼ä,»·¾³ºÃ,½»Í¨·½±ã,»¶Ó­Èë×¡.',1000.00,'13141406453','Ã×Å®Ê¿');
 
 insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price,Telephone,Contact)  
-  values(HOUSE_SEQ.NEXTVAL,3,1001,4,3,2,'åç°ä»£åŸä¸€å±…å®¤å‡ºç§Ÿ','æˆ¿é—´å¹²å‡€å®¶å…·ç”µå™¨å…¨æœ‰.24å°æ—¶ä¿å®‰.24å°æ—¶çƒ­æ°´.äº¤é€šè´­ç‰©æ–¹ä¾¿.æˆ¿å­ç´§é‚»ä¸‡è¾¾å¹¿åœº.åè´¸.é˜³å…‰100.åç°ä»£.æˆ¿å­éå¸¸é€‚åˆåœ¨é™„è¿‘ä¸Šç­çš„äººå£«å±…ä½.',2400.00,'13240775017','æ—¶å…ˆç”Ÿ');
+  values(HOUSE_SEQ.NEXTVAL,3,1001,4,3,2,'ºóÏÖ´ú³ÇÒ»¾ÓÊÒ³ö×â','·¿¼ä¸É¾»¼Ò¾ßµçÆ÷È«ÓĞ.24Ğ¡Ê±±£°².24Ğ¡Ê±ÈÈË®.½»Í¨¹ºÎï·½±ã.·¿×Ó½ôÁÚÍò´ï¹ã³¡.»ªÃ³.Ñô¹â100.ºóÏÖ´ú.·¿×Ó·Ç³£ÊÊºÏÔÚ¸½½üÉÏ°àµÄÈËÊ¿¾Ó×¡.',2400.00,'13240775017','Ê±ÏÈÉú');
 
 insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price,Telephone,Contact)  
-  values(HOUSE_SEQ.NEXTVAL,3,1002,3,2,2,'åŒ—ä¸‰ç¯åŒ—å¤ªå¹³åº„è“Ÿé—¨æ¡¥è“Ÿé—¨é‡Œå°åŒºä¸¤å±…','æˆ¿å­åœ°ç†ä½ç½®å¥½,å°±åœ¨ä¸‰ç¯è¾¹ä¸Š,æœ‰å‡ åº§å¤§å­¦,å°åŒºç¯å¢ƒä¹Ÿç›¸å½“å¥½,å±‹å†…å®¶ç”µå®¶å…·å…¨éƒ½æœ‰.è¿™çš„æˆ¿å­è¿™ä¸ªä»·å¯æ˜¯æœ€ä¾¿å®œçš„äº†,å¥½æˆ¿å­å¿«å¿«æ¥ç”µè¯å§!7æœˆ10å·ä»¥åèƒ½ä½.ä¸­ä»‹å‹¿æ‰°!',2200.00,'13661193065','é’Ÿå°å§');
+  values(HOUSE_SEQ.NEXTVAL,3,1002,3,2,2,'±±Èı»·±±Ì«Æ½×¯¼»ÃÅÇÅ¼»ÃÅÀïĞ¡ÇøÁ½¾Ó','·¿×ÓµØÀíÎ»ÖÃºÃ,¾ÍÔÚÈı»·±ßÉÏ,ÓĞ¼¸×ù´óÑ§,Ğ¡Çø»·¾³Ò²Ïàµ±ºÃ,ÎİÄÚ¼Òµç¼Ò¾ßÈ«¶¼ÓĞ.ÕâµÄ·¿×ÓÕâ¸ö¼Û¿ÉÊÇ×î±ãÒËµÄÁË,ºÃ·¿×Ó¿ì¿ìÀ´µç»°°É!7ÔÂ10ºÅÒÔºóÄÜ×¡.ÖĞ½éÎğÈÅ!',2200.00,'13661193065','ÖÓĞ¡½ã');
 
 insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price,Telephone,Contact)  
-  values(HOUSE_SEQ.NEXTVAL,3,1002,3,1,1,'å‡ºç§Ÿé¼“æ¥¼åœ°é“é™„è¿‘/é¼“æ¥¼è¥¿å¤§è¡—!','æˆ¿å­æ˜¯ä¸€ä¸ªå•é—´,å’Œä¸€ä¸ªå¨æˆ¿,ä¸¤é—´éƒ½èƒ½æ´—æ¾¡,ç”µè§†,å†°ç®±,æ´—è¡£æœº,ç©ºè°ƒä»€ä¹ˆéƒ½é½å…¨,æœ‰æ„è€…å°½å¿«ä¸æˆ‘è”ç³»! ',1500.00,'15801424883','èµµå…ˆç”Ÿ');
+  values(HOUSE_SEQ.NEXTVAL,3,1002,3,1,1,'³ö×â¹ÄÂ¥µØÌú¸½½ü/¹ÄÂ¥Î÷´ó½Ö!','·¿×ÓÊÇÒ»¸öµ¥¼ä,ºÍÒ»¸ö³ø·¿,Á½¼ä¶¼ÄÜÏ´Ôè,µçÊÓ,±ùÏä,Ï´ÒÂ»ú,¿Õµ÷Ê²Ã´¶¼ÆëÈ«,ÓĞÒâÕß¾¡¿ìÓëÎÒÁªÏµ! ',1500.00,'15801424883','ÕÔÏÈÉú');
 
 insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price,Telephone,Contact)  
-  values(HOUSE_SEQ.NEXTVAL,3,1003,2,2,1,'å‡ºç§Ÿå¥ç¿”æ¡¥äºŒå±…å®¤','ç”µå™¨é½å…¨ï¼Œäº¤é€šä¾¿åˆ©',1100.00,'03114525655','ä¼Šå…ˆç”Ÿ');
+  values(HOUSE_SEQ.NEXTVAL,3,1003,2,2,1,'³ö×â½¡ÏèÇÅ¶ş¾ÓÊÒ','µçÆ÷ÆëÈ«£¬½»Í¨±ãÀû',1100.00,'03114525655','ÒÁÏÈÉú');
 
   
  select * from house; 
@@ -136,22 +136,22 @@ insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price
   
   
   
-/* è®²hibernateæ‰ä¼šç”¨åˆ°çš„è¡¨ï¼Œå¤šå¯¹å¤šå…³ç³» */
---äººå‘˜è¡¨
+/* ½²hibernate²Å»áÓÃµ½µÄ±í£¬¶à¶Ô¶à¹ØÏµ */
+--ÈËÔ±±í
 create table numbers(
 	id number not null primary key,
 	name varchar2(50) not null unique,
 	descr varchar2(200)
 );
 
---å·¥ç¨‹è¡¨
+--¹¤³Ì±í
 create table projects(
 	id number not null primary key,
 	name varchar2(50) not null unique,
 	descr varchar2(200)
 );
 
---å…³ç³»ä¸­é—´è¡¨
+--¹ØÏµÖĞ¼ä±í
 create table r_numb_proj(
 	numb_id not null references numbers(id),
 	proj_id not null references projects(id),

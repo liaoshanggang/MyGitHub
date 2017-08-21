@@ -5,12 +5,12 @@
 也就说在一个项目里可能会在不同的SQL 映射文件中存在相同的语句ID -->
 <mapper namespace="com.lanqiao.mapper.HouseMapper">
 
-	<resultMap type="house" id="baseResultMap">
+	<resultMap id="baseResultMap" type="house" >
 		<id property="id" column="ID" />
 		<result property="userId" column="USER_ID"/>
 		<result property="streetId" column="STREET_ID"/>
-		<result property="room" column="TYPE_ID"/>
-		<result property="userId" column="ROOM"/>
+		<result property="typeId" column="TYPE_ID"/>
+		<result property="room" column="ROOM"/>
 		<result property="hall" column="HALL"/>
 		<result property="title" column="TITLE"/>
 		<result property="description" column="DESCRIPTION"/>
@@ -103,5 +103,10 @@
 		   AND H.STREET_ID=S.ID
 		   AND S.DISTRICT_ID=D.ID
 		   AND H.TYPE_ID=T.ID
+	</select>
+	
+	<!-- 查询用户发布的租房信息 -->
+	<select id="selectForMe" parameterType="int" resultMap="baseResultMap">
+		select * from HOUSE WHERE USER_ID=#{id}
 	</select>
 </mapper>

@@ -92,7 +92,7 @@ $(function(){
 		</td>
 	</tr>
 	<tr>
-		<td width='150'><a href="secure/houseAction!managerMyHouse">管理我的租房信息</a></td>
+		<td width='150'><a href="house/selectMe?userId=${logUser.userId }">管理我的租房信息</a></td>
 	</tr>
 	<tr>
 		<td width='100'><a href="post.jsp">发布租房信息</a></td>

@@ -43,5 +43,10 @@ public class HouseServiceImpl implements IHouseService {
 	public House selectByPrimaryKey(Integer id) {
 		return houseMapper.selectByPrimaryKey(id);
 	}
+
+	@Override
+	public List<House> selectForMe(Integer userId) {
+		return houseMapper.selectForMe(userId);
+	}
 	
 }

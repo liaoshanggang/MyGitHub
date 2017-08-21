@@ -62,4 +62,22 @@ public class HouseController {
 		modelMap.addAttribute("house", house);
 		return "detail";
 	}
+	@RequestMapping("/selectMe")
+	public String selectMe(Integer userId,ModelMap modelMap){
+		List<House> list = this.houseService.selectForMe(userId);
+		modelMap.addAttribute("houses", list);
+		return "my";
+	}
+	
+	@RequestMapping("/toUpdate/{id}")
+	public String toUpdate(@PathVariable Integer id,ModelMap modelMap){
+		House house = houseService.selectByPrimaryKey(id);
+		modelMap.addAttribute("house", house);
+		return "post";
+	}
+	
+	@RequestMapping("/update")
+	public String update(House h,ModelMap modelMap){
+		return null;
+	}
 }

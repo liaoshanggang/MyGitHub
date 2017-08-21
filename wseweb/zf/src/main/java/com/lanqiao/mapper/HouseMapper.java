@@ -33,4 +33,6 @@ public interface HouseMapper {
 	public List<Street> selectStreetById(Integer districtId);
 	
 	public House selectByPrimaryKey(Integer id);
+	
+	public List<House> selectForMe(Integer userId);
 }
