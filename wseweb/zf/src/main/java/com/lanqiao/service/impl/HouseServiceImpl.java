@@ -38,5 +38,10 @@ public class HouseServiceImpl implements IHouseService {
 	public List<Street> selectStreetById(Integer districtId) {
 		return houseMapper.selectStreetById(districtId);
 	}
+
+	@Override
+	public House selectByPrimaryKey(Integer id) {
+		return houseMapper.selectByPrimaryKey(id);
+	}
 	
 }

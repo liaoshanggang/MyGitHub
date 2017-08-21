@@ -1,16 +1,13 @@
 package com.lanqiao.vo;
 
-public class Street {
+public class Types {
 
 	private Integer id;
 	private String name;
-	private District district;
-	
-	public Street() {
+	public Types() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public Street(Integer id, String name) {
+	public Types(Integer id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -30,12 +27,6 @@ public class Street {
 	@Override
 	public String toString() {
 		return "District [id=" + id + ", name=" + name + "]";
-	}
-	public District getDistrict() {
-		return district;
-	}
-	public void setDistrict(District district) {
-		this.district = district;
 	}
 	
 	

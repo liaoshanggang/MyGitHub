@@ -29,6 +29,10 @@ public class House {
 	private String contact;
 	private Double lowPrice;
 	private Double hiPrice;
+	//实体关联
+	private UserInfo userInfo;
+	private Street street;
+	private Types types;
 
 	public House() {
 		super();
@@ -171,6 +175,30 @@ public class House {
 
 	public void setHiPrice(Double hiPrice) {
 		this.hiPrice = hiPrice;
+	}
+
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
+
+	public Street getStreet() {
+		return street;
+	}
+
+	public void setStreet(Street street) {
+		this.street = street;
+	}
+
+	public Types getTypes() {
+		return types;
+	}
+
+	public void setTypes(Types types) {
+		this.types = types;
 	}
 
 }

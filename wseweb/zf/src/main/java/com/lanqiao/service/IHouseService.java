@@ -34,5 +34,16 @@ public interface IHouseService {
 	 */
 	public List<District> selectDistrict();
 	
+	/**
+	 * 
+	 * @param districtId
+	 * @return
+	 */
 	public List<Street> selectStreetById(Integer districtId);
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public House selectByPrimaryKey(Integer id);
 }

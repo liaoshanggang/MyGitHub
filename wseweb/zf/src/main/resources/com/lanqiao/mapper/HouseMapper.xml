@@ -18,6 +18,22 @@
 		<result property="pubdate" column="PUBDATE"/>
 		<result property="telephone" column="TELEPHONE"/>
 		<result property="contact" column="CONTACT"/>
+		<!-- 关联用户实体 -->
+		<association property="userInfo" javaType="userInfo" column="USER_ID" columnPrefix="U_"
+			resultMap="com.lanqiao.mapper.UserMapper.baseResultMap">
+		</association>
+		<association property="street" javaType="street" column="STREET_ID">
+			<id property="id" column="S_ID"/>
+			<result property="name" column="S_name"/>
+			<association property="district" javaType="district" column="DISTRICT_ID" columnPrefix="D_">
+				<id property="id" column="ID" ></id>
+				<result property="name" column="name"/>
+			</association>
+		</association>
+		<association property="types" javaType="types" column="TYPE_ID" columnPrefix="T_">
+			<id property="id" column="ID" ></id>
+			<result property="name" column="name"/>
+		</association>
 	</resultMap>
 	
 	<sql id="where_selective">
@@ -60,5 +76,32 @@
 	<!-- 根据区号id查找街道信息 -->
 	<select id="selectStreetById" parameterType="int" resultType="street" >
 		select * from STREET where DISTRICT_ID=#{id}
+	</select>
+	
+	<!-- 根据房子编号查询用户的信息 -->
+	<select id="selectByPrimaryKey" parameterType="int" resultMap="baseResultMap">
+		select h.*,
+			   U.USER_ID 	U_USER_ID,
+			   U.USER_NAME 	U_USER_NAME,
+			   U.PASSWORD 	U_PASSWORD,
+			   U.TEL 		U_TEL,
+			   U.EMAIL 		U_EMAIL,
+			   S.ID			S_ID,
+			   S.NAME		S_NAME,
+			   S.DISTRICT_ID,
+			   D.ID			D_ID,
+			   D.NAME		D_NAME,
+			   T.ID			T_ID,
+			   T.NAME		T_NAME
+		from HOUSE h, 
+			USERSINFO u,
+			STREET S,
+			DISTRICT D,
+			TYPES T
+		where h.id=#{id}
+		   AND H.USER_ID=U.USER_ID
+		   AND H.STREET_ID=S.ID
+		   AND S.DISTRICT_ID=D.ID
+		   AND H.TYPE_ID=T.ID
 	</select>
 </mapper>

@@ -32,5 +32,5 @@ public interface HouseMapper {
 	 */
 	public List<Street> selectStreetById(Integer districtId);
 	
-	
+	public House selectByPrimaryKey(Integer id);
 }

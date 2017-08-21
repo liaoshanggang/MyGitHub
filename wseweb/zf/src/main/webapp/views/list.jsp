@@ -162,7 +162,7 @@ $(function(){
 				
 			<c:forEach var="house" items="${houseList}">
 				<tr>
-					<td><a href='detail.htm'>${house.title }</a></td>
+					<td><a href='house/detail/${house.id }'>${house.title }</a></td>
 					<td align='center' style='height:30px;'>${house.price }元</td>
 					<td align='center'>
 						<fmt:formatDate value="${house.pubdate }" pattern="yyyy-MM-dd"/>

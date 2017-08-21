@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -53,5 +54,12 @@ public class HouseController {
 	public @ResponseBody List<Street> loadStreet(Integer districtId){
 		List<Street> list = houseService.selectStreetById(districtId);
 		return list;
+	}
+	
+	@RequestMapping("/detail/{id}")
+	public String viewDetail(@PathVariable Integer id,ModelMap modelMap){
+		House house = houseService.selectByPrimaryKey(id);
+		modelMap.addAttribute("house", house);
+		return "detail";
 	}
 }
