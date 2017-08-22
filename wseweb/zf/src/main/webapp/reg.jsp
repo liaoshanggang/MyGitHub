@@ -1,33 +1,28 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
-
 <HTML>
 <HEAD>
-<base href="<%=basePath%>">
 <TITLE>搜房网租房</TITLE>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link href="style/mycss.css" rel="stylesheet" type="text/css" />
-<link href="style/text.css" rel="stylesheet" type="text/css" />
+<link href="style/texts.css" rel="stylesheet" type="text/css" />
 <link href="style/btn.css" rel="stylesheet" type="text/css" />
 <script lang="javascript">
-	function login() {
-		if (document.myForm.username.value == "") {
+	function pass() {
+		var pass = false;
+		if (document.myForm.uname.value == "") {
 			alert("用户名不能为空");
-			return false;
-		} else if (document.myForm.password.value == "") {
+			pass = false;
+		} else if (document.myForm.upass.value == "") {
 			alert("密码不能为空");
-			return false;
+			pass = false;
+		} else if (document.myForm.upass.value != document.myForm.upass1.value) {
+			alert("两次密码不一样");
+			pass = false;
 		} else {
-			return true;
+			pass = true;
 		}
+		return pass;
 	}
 </script>
 </HEAD>
@@ -52,20 +47,17 @@
 						<td><a href="index.jsp">返回首页</a></td>
 					</tr>
 					<tr>
-						<td><a href="reg.jsp">用户注册</a></td>
+						<td><a href="login_form.jsp">用户登陆</a></td>
 					</tr>
 				</table>
 			</td>
 			<td width="35" background="images/layout_24.gif">&nbsp;</td>
 			<td width="495">
-				<form action="user/login" method="post" name="myForm"
-					onsubmit="return login()">
+				<form action="user/reg" method="post" name="myForm"
+					onsubmit="return pass()">
 					<table align="center">
 						<tr>
-							<td colspan="2" align="center"></td>
-						</tr>
-						<tr>
-							<td>用户登陆：&nbsp;</font></td>
+							<td>用户注册：</td>
 							<td>&nbsp;</td>
 						</tr>
 						<tr>
@@ -73,15 +65,17 @@
 						</tr>
 						<tr>
 							<td>用户名：</td>
-							<td><input type="text" name="username"></td>
-						</tr>
+							<td><input type="text" name="uname"></td>
 						<tr>
 							<td>密码：</td>
-							<td><input type="password" name="password"></td>
-						</tr>
+							<td><input type="password" name="upass"></td>
 						<tr>
-							<td><input type="hidden" name="sign" value="login" /> <input
-								type="submit" value="登陆" class="btn"></td>
+						<tr>
+							<td>重复密码：</td>
+							<td><input type="password" name="upass1"></td>
+						<tr>
+							<td><input type="submit" value="注册" class="btn">&nbsp;</td>
+							<td><input type="reset" value="重置" class="btn"></td>
 						</tr>
 					</table>
 				</form>

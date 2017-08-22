@@ -1,6 +1,6 @@
 package com.lanqiao.vo;
 
-public class UserInfo implements java.io.Serializable{
+public class UserInfo implements java.io.Serializable {
 	private Integer userId;
 	private String username;
 	private String password;

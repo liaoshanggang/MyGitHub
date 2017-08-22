@@ -3,33 +3,25 @@ package com.lanqiao.vo;
 import java.util.Date;
 
 public class House {
-	/*
-	 * create table HOUSE ( ID NUMBER NOT NULL PRIMARY KEY, USER_ID NUMBER
-	 * REFERENCES USERSINFO(USER_ID), STREET_ID NUMBER REFERENCES STREET(ID),
-	 * TYPE_ID NUMBER REFERENCES TYPES(ID), ROOM NUMBER, --几室 HALL NUMBER, --几厅
-	 * TITLE VARCHAR2(50), --标题 DESCRIPTION VARCHAR2(2000), PRICE NUMBER,
-	 * PUBDATE timestamp default systimestamp, --发布时间 TELEPHONE VARCHAR2(13),
-	 * --联系电话 CONTACT VARCHAR2(10) --联系人 );
-	 */
 	private Integer id;
 	private Integer userId;
 	private Integer streetId;
 	private Integer typeId;
-	//几室
+	// 几室
 	private Integer room;
-	//几厅
+	// 几厅
 	private Integer hall;
 	private String title;
 	private String description;
 	private Double price;
 	private Date pubdate;
-	//联系电话
+	// 联系电话
 	private String telephone;
-	//联系人
+	// 联系人
 	private String contact;
 	private Double lowPrice;
 	private Double hiPrice;
-	//实体关联
+	// 实体关联
 	private UserInfo userInfo;
 	private Street street;
 	private Types types;

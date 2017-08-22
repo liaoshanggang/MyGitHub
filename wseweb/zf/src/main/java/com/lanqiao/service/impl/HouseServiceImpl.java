@@ -18,7 +18,7 @@ public class HouseServiceImpl implements IHouseService {
 
 	@Resource
 	HouseMapper houseMapper;
-	
+
 	@Override
 	public int countForSelective(Page<House> house) {
 		return houseMapper.countForSelective(house);
@@ -63,5 +63,5 @@ public class HouseServiceImpl implements IHouseService {
 	public void insertHouseInfo(House house) {
 		houseMapper.insertHouseInfo(house);
 	}
-	
+
 }

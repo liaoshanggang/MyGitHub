@@ -14,31 +14,31 @@ public interface HouseMapper {
 	 * @return
 	 */
 	public int countForSelective(Page<House> house);
-	
+
 	/**
 	 * @param house
 	 * @return
 	 */
 	public List<House> selectSelective(Page<House> house);
-	
+
 	/**
 	 * @return
 	 */
 	public List<District> selectDistrict();
-	
+
 	/**
 	 * @param districtId
 	 * @return
 	 */
 	public List<Street> selectStreetById(Integer districtId);
-	
+
 	public House selectByPrimaryKey(Integer id);
-	
+
 	public List<House> selectForMe(Integer userId);
-	
+
 	public void updateMyHouseInfo(House house);
-	
+
 	public void deleteHouseInfoById(Integer id);
-	
+
 	public void insertHouseInfo(House house);
 }
