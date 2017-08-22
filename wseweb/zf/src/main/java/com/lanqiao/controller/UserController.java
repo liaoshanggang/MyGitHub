@@ -60,4 +60,9 @@ public class UserController {
 		return "";
 	}
 
+	@RequestMapping("/logOut")
+	public String logOut(HttpSession session){
+		session.setAttribute("logUser", null);
+		return "redirect:/login_form.jsp";
+	}
 }

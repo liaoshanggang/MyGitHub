@@ -111,7 +111,7 @@
 						<td width='100'><a href="index.jsp">返回首页</a></td>
 					</tr>
 					<tr>
-						<td width='100'><a href="login_form.jsp">[注销]</a></td>
+						<td width='100'><a href="user/logOut">[注销]</a></td>
 					</tr>
 				</table></td>
 			<td width="35" background="images/layout_24.gif">&nbsp;</td>
