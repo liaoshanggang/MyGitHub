@@ -7,4 +7,6 @@ import com.lanqiao.vo.UserInfo;
 @Repository
 public interface UserMapper {
 	public UserInfo login(UserInfo user);
+	
+	public int reg(UserInfo user);
 }

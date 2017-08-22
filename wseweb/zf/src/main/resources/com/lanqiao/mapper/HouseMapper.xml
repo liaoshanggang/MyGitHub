@@ -109,4 +109,72 @@
 	<select id="selectForMe" parameterType="int" resultMap="baseResultMap">
 		select * from HOUSE WHERE USER_ID=#{id}
 	</select>
+	
+	<!-- 修改我发布的租房信息 -->
+	<update id="updateMyHouseInfo" parameterType="house">
+		update house
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="streetId != null">STREET_ID=#{streetId},</if>
+			<if test="typeId != null">TYPE_ID=#{typeId},</if>
+			<if test="room != null">ROOM=#{room},</if>
+			<if test="hall != null">HALL=#{hall},</if>
+			<if test="title != null">TITLE=#{title},</if>
+			<if test="description != null">DESCRIPTION=#{description},</if>
+			<if test="price != null">PRICE=#{price},</if>
+			<if test="pubdate != null">PUBDATE=#{pubdate},</if>
+			<if test="telephone != null">TELEPHONE=#{telephone},</if>
+			<if test="contact != null">CONTACT=#{contact},</if>
+		</trim>
+		where USER_ID=#{userId}
+	</update>
+	
+	<!-- 根据房子id删除信息 -->
+	<delete id="deleteHouseInfoById" parameterType="int">
+		delete house where id=#{id}
+	</delete>
+	
+	<!-- 插入用户发布的租房信息 -->
+	<sql id="insert_columns">
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">#{id},</if>
+			<if test="streetId != null">#{streetId},</if>
+			<if test="typeId != null">#{typeId},</if>
+			<if test="room != null">#{room},</if>
+			<if test="hall != null">#{hall},</if>
+			<if test="title != null">#{title},</if>
+			<if test="description != null">#{description},</if>
+			<if test="price != null">#{price},</if>
+			<if test="pubdate != null">#{pubdate},</if>
+			<if test="telephone != null">#{telephone},</if>
+			<if test="contact != null">#{contact},</if>
+		</trim>
+	</sql>
+	
+	<sql id="insert_values">
+		<trim prefix="values(" suffix=")" suffixOverrides=",">
+		<if test="id != null">#{id},</if>
+			<if test="streetId != null">#{streetId},</if>
+			<if test="typeId != null">#{typeId},</if>
+			<if test="room != null">#{room},</if>
+			<if test="hall != null">#{hall},</if>
+			<if test="title != null">#{title},</if>
+			<if test="description != null">#{description},</if>
+			<if test="price != null">#{price},</if>
+			<if test="pubdate != null">#{pubdate},</if>
+			<if test="telephone != null">#{telephone},</if>
+			<if test="contact != null">#{contact},</if>
+		</trim>
+	</sql>
+	<insert id="insertHouseInfo" parameterType="house">
+		<!-- 从序列中得到一个值并赋给userInfo对象的userId属性
+			order="BEFORE|AFTER"：表示数据库的主键值的生成机制是预生成还后生成主键
+			预生成主键值：就是指在插入数据时先得有主键值，才可填其它字段的值。如：oracle
+			后生成主键值：就是指在插入数据时可以先可填其它字段的值，最后现给主键值。如:ms sqlserver, mysql
+		 -->
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			select HOUSE_SEQ.NEXTVAL from dual
+		</selectKey>
+		insert into HOUSE values(#{id},#{userId},#{streetId},#{typeId},#{room},#{hall},#{title},#{description},#{price},#{pubdate},#{telephone},#{contact})
+		<!-- insert into USERSINFO <include refid="insert_columns"/> <include refid="insert_values"/> -->
+	</insert>
 </mapper>

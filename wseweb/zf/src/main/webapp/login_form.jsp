@@ -43,10 +43,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td width="172">
 	<table align="center">
 		<tr>
-		  <td><a href="index.htm">返回首页</a></td>
+		  <td><a href="index.jsp">返回首页</a></td>
 		</tr>
 		<tr>
-		  <td><a href="reg.htm">用户注册</a></td>
+		  <td><a href="reg.jsp">用户注册</a></td>
 		</tr>
 	</table>
 	</td>

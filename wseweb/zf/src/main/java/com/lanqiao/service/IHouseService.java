@@ -48,4 +48,10 @@ public interface IHouseService {
 	public House selectByPrimaryKey(Integer id);
 	
 	public List<House> selectForMe(Integer userId);
+	
+	public void updateMyHouseInfo(House house);
+	
+	public void deleteHouseInfoById(Integer id);
+	
+	public void insertHouseInfo(House house);
 }

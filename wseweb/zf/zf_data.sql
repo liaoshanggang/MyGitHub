@@ -19,8 +19,10 @@ create table "USERSINFO"(
 	
 insert into USERSINFO values(USERSINFO_SEQ.NEXTVAL,'admin','admin','18623423090','65538815@qq.com');
 insert into USERSINFO values(USERSINFO_SEQ.NEXTVAL,'manager','manager','18623423090','65538815@qq.com');	
+insert into USERSINFO values(USERSINFO_SEQ.NEXTVAL,'forward','forward','66666666666','66666666@qq.com');	
 	
   SELECT * FROM USERSINFO;
+25
   select * from HOUSE WHERE USER_ID=3
 --创建区县表
 DROP TABLE DISTRICT;
@@ -121,7 +123,9 @@ insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price
 insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price,Telephone,Contact)  
   values(HOUSE_SEQ.NEXTVAL,3,1003,2,2,1,'出租健翔桥二居室','电器齐全，交通便利',1100.00,'03114525655','伊先生');
 
-  
+  insert into house(ID,User_Id,Street_Id,Type_Id,Room,Hall,Title,Description,Price,Telephone,Contact)  
+  values(HOUSE_SEQ.NEXTVAL,5,1003,2,2,1,'出租健翔桥二居室','电器齐全，交通便利',1100.00,'03114525655','廖先生');
+
  select * from house; 
   
   

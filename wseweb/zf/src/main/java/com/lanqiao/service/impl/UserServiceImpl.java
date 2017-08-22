@@ -20,4 +20,9 @@ public class UserServiceImpl implements IUserService {
 	public UserInfo selectForLogin(UserInfo user) {
 		return userMapper.login(user);
 	}
+	
+	@Override
+	public int insertForReg(UserInfo user) {
+		return userMapper.reg(user);
+	}
 }

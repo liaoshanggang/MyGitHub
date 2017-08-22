@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lanqiao.service.IUserService;
 import com.lanqiao.vo.UserInfo;
@@ -42,4 +44,14 @@ public class UserController {
 		modelMap.addAttribute("user", userInfo);
 		return "redirect:/house/list";
 	}
+	
+	@RequestMapping("/reg")
+	@ResponseBody
+	public String reg(@RequestParam("uname") String uname1,@RequestParam("upass") String upass1){ //<input name="username">
+		System.out.println(uname1+""+upass1);
+		this.userService.insertForReg(new UserInfo(null,
+				uname1, upass1, "123456", "123456"));
+		return "";
+	}
+	
 }

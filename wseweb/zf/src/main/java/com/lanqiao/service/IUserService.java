@@ -13,4 +13,6 @@ public interface IUserService {
 	 * @return
 	 */
 	public UserInfo selectForLogin(UserInfo user);
+	
+	public int insertForReg(UserInfo user);
 }

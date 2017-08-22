@@ -18,6 +18,39 @@
 		select * from USERSINFO where user_name=#{username} and password=#{password}
 	</select>
 	
+	
+	<sql id="insert_columns">
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userId != null">#{userId},</if>
+			<if test="username != null">#{username},</if>
+			<if test="password != null">#{password},</if>
+			<if test="tel != null">#{tel},</if>
+			<if test="email != null">#{email},</if>
+		</trim>
+	</sql>
+	
+	<sql id="insert_values">
+		<trim prefix="values(" suffix=")" suffixOverrides=",">
+			<if test="userId != null">#{userId},</if>
+			<if test="username != null">#{username},</if>
+			<if test="password != null">#{password},</if>
+			<if test="tel != null">#{tel},</if>
+			<if test="email != null">#{email},</if>
+		</trim>
+	</sql>
+	<insert id="reg" parameterType="userInfo">
+		<!-- 从序列中得到一个值并赋给userInfo对象的userId属性
+			order="BEFORE|AFTER"：表示数据库的主键值的生成机制是预生成还后生成主键
+			预生成主键值：就是指在插入数据时先得有主键值，才可填其它字段的值。如：oracle
+			后生成主键值：就是指在插入数据时可以先可填其它字段的值，最后现给主键值。如:ms sqlserver, mysql
+		 -->
+		<selectKey keyProperty="userId" resultType="int" order="BEFORE">
+			select USERSINFO_SEQ.NEXTVAL from dual
+		</selectKey>
+		insert into USERSINFO values(#{userId},#{username},#{password},#{tel},#{email})
+		<!-- insert into USERSINFO <include refid="insert_columns"/> <include refid="insert_values"/> -->
+	</insert>
+	
 	<!-- <select id="selectByPrimaryKey" parameterType="int" resultMap="baseResultMap">
 		SELECT * FROM SCOTT.EMP where empno=#{id}
 	</select>

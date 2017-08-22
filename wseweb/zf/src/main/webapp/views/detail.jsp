@@ -53,20 +53,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<table align="center">
 	<tr>
-		<td width=''><font color='red'>当前用户：${logUser.username }</font>
+		<td width=''><font color='red'>当前用户：${sessionScope.logUser.username }</font>
 		</td>
 	</tr>
 	<tr>
-		<td width='150'><a href="my.htm">管理我的租房信息</a></td>
+		<td width='150'><a href="house/selectMe?userId=${logUser.userId}">管理我的租房信息</a></td>
 	</tr>
 	<tr>
-		<td width='100'><a href="post.htm">发布租房信息</a></td>
+		<td width='100'><a href="#post.jsp">发布租房信息</a></td>
 	</tr>
 	<tr>
-		<td width='100'><a href="login.htm">返回首页</a></td>
+		<td width='100'><a href="index.html">返回首页</a></td>
 	</tr>
 	<tr>
-		<td width='100'><a href="index.htm">[注销]</a></td>
+		<td width='100'><a href="login_form.jsp">[注销]</a></td>
 	</tr>
 	</table>
 </td>

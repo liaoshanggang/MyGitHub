@@ -48,5 +48,20 @@ public class HouseServiceImpl implements IHouseService {
 	public List<House> selectForMe(Integer userId) {
 		return houseMapper.selectForMe(userId);
 	}
+
+	@Override
+	public void updateMyHouseInfo(House house) {
+		houseMapper.updateMyHouseInfo(house);
+	}
+
+	@Override
+	public void deleteHouseInfoById(Integer id) {
+		houseMapper.deleteHouseInfoById(id);
+	}
+
+	@Override
+	public void insertHouseInfo(House house) {
+		houseMapper.insertHouseInfo(house);
+	}
 	
 }

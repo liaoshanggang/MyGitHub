@@ -3,12 +3,17 @@ package com.lanqiao.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lanqiao.service.IHouseService;
@@ -73,11 +78,35 @@ public class HouseController {
 	public String toUpdate(@PathVariable Integer id,ModelMap modelMap){
 		House house = houseService.selectByPrimaryKey(id);
 		modelMap.addAttribute("house", house);
-		return "post";
+		return "post_update";//post
 	}
+	
+	/*@RequestMapping(value="/update")
+	public @ResponseBody String update(HttpServletRequest request){
+		String userId = request.getParameter("userId");
+		
+		House h = new House();
+		this.houseService.updateMyHouseInfo(h );
+		return "success";
+	}*/
 	
 	@RequestMapping("/update")
 	public String update(House h,ModelMap modelMap){
-		return null;
+		this.houseService.updateMyHouseInfo(h);
+		List<House> list = this.houseService.selectForMe(h.getUserId());
+		modelMap.addAttribute("houses", list);
+		return "my";
 	}
+	
+	@RequestMapping("/delete")
+	public String delete(@RequestParam("hid") String id,Integer userId,ModelMap modelMap){
+		System.out.println(userId);
+		System.out.println(id);
+		houseService.deleteHouseInfoById(Integer.parseInt(id));
+		List<House> list = this.houseService.selectForMe(userId);
+		modelMap.addAttribute("houses", list);
+		return "my";
+	}
+	
+	
 }
