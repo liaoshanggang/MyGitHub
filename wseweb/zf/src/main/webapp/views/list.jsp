@@ -105,7 +105,10 @@
 					</tr>
 					<tr>
 						<td width='100'><a
-							href="house/toInsert?userId=${logUser.userId }">发布租房信息</a></td>
+							href="house/toInsert?userId=${logUser.userId }">发布我的租房信息</a></td>
+					</tr>
+					<tr>
+						<td width='100'><a href="house/list">最新租房信息</a></td>
 					</tr>
 					<tr>
 						<td width='100'><a href="index.jsp">返回首页</a></td>

@@ -1,5 +1,6 @@
 package com.lanqiao.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -118,8 +119,9 @@ public class HouseController {
 		//House [id=null, userId=5, streetId=1000, typeId=null, room=2, hall=3, title=出租桂林理工613宿舍,
 		//description=123456,price=213456.0, pubdate=null, telephone=12345678987, contact=12312]
 		System.out.println(house);
-//		houseService.insertHouseInfo(house);
-		return "list";
+		house.setPubdate(new Date());
+		houseService.insertHouseInfo(house);
+		return "redirect:/house/list";
 	}
 
 }
