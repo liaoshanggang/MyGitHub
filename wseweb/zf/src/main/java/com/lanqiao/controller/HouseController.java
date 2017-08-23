@@ -93,6 +93,7 @@ public class HouseController {
 		this.houseService.updateMyHouseInfo(h);
 		List<House> list = this.houseService.selectForMe(h.getUserId());
 		modelMap.addAttribute("houses", list);
+		System.out.println(h.getStreet().getDistrict().getId());
 		return "my";
 	}
 
@@ -114,8 +115,10 @@ public class HouseController {
 
 	@RequestMapping("/insert")
 	public String insert(House house) {
+		//House [id=null, userId=5, streetId=1000, typeId=null, room=2, hall=3, title=出租桂林理工613宿舍,
+		//description=123456,price=213456.0, pubdate=null, telephone=12345678987, contact=12312]
 		System.out.println(house);
-		houseService.insertHouseInfo(house);
+//		houseService.insertHouseInfo(house);
 		return "list";
 	}
 

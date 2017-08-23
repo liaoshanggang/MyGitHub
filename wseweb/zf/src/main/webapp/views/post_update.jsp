@@ -155,7 +155,7 @@
 						</tr>
 						<tr>
 							<td><strong>区县：</strong></td>
-							<td><select id="district" name="qxid" style="width: 80">
+							<td><select id="district" name="street.district.id" style="width: 80">
 							</select></td>
 						</tr>
 						<tr>
@@ -182,7 +182,7 @@
 						</tr>
 						<tr>
 							<td><strong>房屋类型：</strong></td>
-							<td><select name="">
+							<td><select name="typeId">
 									<option value="0" ${house.types.id eq 0 ?'selected':''}>不限</option>
 									<option value="1" ${house.types.id eq 1 ?'selected':''}>地下室</option>
 									<option value="2" ${house.types.id eq 2 ?'selected':''}>平房</option>

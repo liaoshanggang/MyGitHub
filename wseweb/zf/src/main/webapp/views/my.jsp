@@ -17,7 +17,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link href="style/mycss.css" rel="stylesheet" type="text/css" />
-<link href="style/texts.css" rel="stylesheet" type="text/css" />
+<link href="style/text.css" rel="stylesheet" type="text/css" />
 <link href="style/btn.css" rel="stylesheet" type="text/css" />
 
 </HEAD>

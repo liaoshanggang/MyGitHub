@@ -15,13 +15,33 @@
 	<!-- 对web包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 -->
 	<context:component-scan base-package="com.lanqiao.controller" />
 
+
+
+	<!-- ②注册自定义类型转换器 -->
+	<!-- ①将自定义的类型转换器加入SpringIOC容器 -->
+	<bean id="studentConverter" class="com.lanqiao.converter.StudentConverter"></bean>
+	<!-- ②将自定义的类型转换器注册到 SpringMVC提供的 ConversionServiceFactoryBean中 -->
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters"><!-- ConversionServiceFactoryBean -->
+			<set>
+				<ref bean="studentConverter" />
+			</set>
+		</property>
+	</bean>
+	<!--③ 将自定义的类型转换器所在的ConversionServiceFactoryBean， 注册到annotation-driven之中 -->
+
+
 	<!--支持spring3.0+ 新的mvc注解,不加有些注解功能不行，如json转换的@ResponseBody <context:annotation-config/> 
 		将隐式地向 Spring 容器注册 1. AutowiredAnnotationBeanPostProcessor 2. CommonAnnotationBeanPostProcessor 
 		3. PersistenceAnnotationBeanPostProcessor 4. RequiredAnnotationBeanPostProcessor 
 		这 4 个 BeanPostProcessor。 -->
 	<!-- 4、驱动，用到springmvc 的注解，bean。。 -->
-	<mvc:annotation-driven />
+	<!-- 目的是为了在访问静态资源的同时，也能正常的访问其他非静态资源 -->
+	<mvc:annotation-driven conversion-service="conversionService">
+	</mvc:annotation-driven>
 
+	<!-- 只加就会造成只能访问静态资源，而无法访问非静态资源。 -->
 	<!-- 6、 -->
 	<!-- 将所静态资源的请求交给web服务器默认的Servlet来处理，而不是让springmvc的核心控制器：DispatcherServlet 
 		对于不同的web服务器的默认Servlet名称是不同，tomcat的默认Servlet名称为"default" -->
@@ -39,5 +59,14 @@
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
 	</bean>
-
+	<!-- 加载国际化资源文件 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="i18n" />
+	</bean>
+	<mvc:view-controller path="/testViewController"
+		view-name="success" />
+	<!-- 格式化数据 -->
+	<!-- <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"> 
+		</bean> -->
 </beans>	
