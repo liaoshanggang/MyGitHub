@@ -11,7 +11,7 @@
 <c:if test="${!empty logUser}">
 <h1><a href="user/logOut">注销</a></h1>
 <h1><a href="house/list">列表</a></h1>
-<h1><a href="#">Nothing</a></h1>
+<h1><a href="test.jsp">test</a></h1>
 </c:if>
 </body>
 </html>

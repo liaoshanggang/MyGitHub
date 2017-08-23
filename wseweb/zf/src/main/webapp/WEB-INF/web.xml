@@ -12,6 +12,8 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext.xml</param-value>
 	</context-param>
+
+
 	<!-- 這個類會找上面的 -->
 	<!-- 加载applicationContext.xml配置文件 -->
 	<listener>
@@ -22,7 +24,8 @@
 	<listener>
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
-
+	
+	
 	<!-- 中文转码必须加到核心控制器前面 -->
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
@@ -41,7 +44,15 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-
+<!-- 配置HiddenHttpMethodFilter过滤器 -->
+	<filter>
+	<filter-name>HiddenHttpMethodFilter</filter-name> 
+	<filter-class> 
+		org.springframework.web.filter.HiddenHttpMethodFilter </filter-class> </filter> 
+	<filter-mapping>
+	<filter-name>HiddenHttpMethodFilter</filter-name>
+	<url-pattern>/*</url-pattern> 
+	</filter-mapping>
 	<!-- 1、 -->
 	<!--核心控制器，将springMVC整合到项目里 -->
 	<servlet>
