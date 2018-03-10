@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=src/main/webapp/vendor/js/plugins,src/main/webapp/vendor/js/jquery-ui-1.10.4.min.js,src/main/webapp/js/prettify
+validator.Unchecked=

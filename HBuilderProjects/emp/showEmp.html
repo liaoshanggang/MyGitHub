@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script>
+			//1、模拟从servlet中获取的数据
+var _data=[{"empno":7369,"ename":"SMITH","job":"CLERK","mgr":7856,"hiredate":"1980/12/17","sal":800.00,"comm":0,"deptno":20},
+ {"empno":7376,"ename":"SMITH","job":"CLERK","mgr":7933,"hiredate":"1980/12/17","sal":800.00,"comm":0,"deptno":20},
+ {"empno":7588,"ename":"SMITH","job":"CLERK","mgr":7902,"hiredate":"1980/12/17","sal":800.00,"comm":0,"deptno":20},
+ {"empno":7856,"ename":"SMITH","job":"CLERK","mgr":7902,"hiredate":"1980/12/17","sal":800.00,"comm":0,"deptno":20},
+ {"empno":7933,"ename":"SMITH","job":"CLERK","mgr":7902,"hiredate":"1980/12/17","sal":800.00,"comm":0,"deptno":20},
+ {"empno":7933,"ename":"SMITH","job":"CLERK","mgr":7902,"hiredate":"1980/12/17","sal":800.00,"comm":0,"deptno":20},
+ {"empno":7933,"ename":"SMITH","job":"CLERK","mgr":7902,"hiredate":"1980/12/17","sal":800.00,"comm":0,"deptno":20},
+ {"empno":7933,"ename":"SMITH","job":"CLERK","mgr":7902,"hiredate":"1980/12/17","sal":800.00,"comm":0,"deptno":20},
+ {"empno":7933,"ename":"SMITH","job":"CLERK","mgr":7902,"hiredate":"1980/12/17","sal":800.00,"comm":0,"deptno":20},
+ {"empno":7933,"ename":"SMITH","job":"CLERK","mgr":7902,"hiredate":"1980/12/17","sal":800.00,"comm":0,"deptno":20},
+ {"empno":7933,"ename":"SMITH","job":"CLERK","mgr":7902,"hiredate":"1980/12/17","sal":800.00,"comm":0,"deptno":20},
+ {"empno":7987,"ename":"SMITH","job":"CLERK","mgr":7902,"hiredate":"1980/12/17","sal":800.00,"comm":0,"deptno":20}];
+ //2、将数据以table的形式展现（动态生成表格）
+ //3、生成表头
+ strHeader='<table style="border-collapse:collapse;border:1px solid #999;text-align:center;">'+
+ '<tr>'+
+ '<th>员工编号</th><th>姓名</th><th>岗位</th><th>上级</th>'+
+ '<th>入职日期</th><th>工资</th><th>奖金</th><th>部门</th>'+
+ '<th>删除操作</th><th>更新操作</th></tr>';
+  //生成表格内容
+  strTR='';
+  $.each(_data, function(index,emp) {
+  	strTR+='<tr>';
+  	strTD='';
+  	$.each(emp, function(i,e) {
+  		strTD+='<td style="border:1px solid #333;width:70px;">'+e+'</td>';
+  	});
+  	strTD += '<td style="border:1px solid #333;width:70px;"><button onclick="removeTD(this)">删除</button></td>';
+  	strTD += '<td style="border:1px solid #333;width:70px;"><button onclick="updateTD(this)">更新</button></td>';
+  	strTR+=strTD+'</tr>';
+  });
+  var _strHTML = strHeader+strTR+'</table>';
+  $(function(){
+  	$('#list').append(_strHTML);
+  });
+  function removeTD(nowTD){
+  	$(nowTD).parent().parent().remove();
+  }
+  function updateTD(nowTD){
+  	$(nowTD).parent().parent().remove();
+  }
+		</script>
+	</head>
+	<body>
+		<div id="list"></div>
+	</body>
+</html>

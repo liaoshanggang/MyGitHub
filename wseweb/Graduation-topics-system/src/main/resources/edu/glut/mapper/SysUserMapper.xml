@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 名字空间,mybatis高版本后namespace属性是必须的，其作用用来区分每个SQL映射文件中的语句, 也就说在一个项目里可能会在不同的SQL 
+	映射文件中存在相同的语句ID -->
+<mapper namespace="edu.glut.mapper.SysUserMapper">
+	<resultMap id="baseResultMap" type="sysUser">
+		<id property="usrId" column="USR_ID" />
+		<result property="usrName" column="USR_NAME" />
+		<result property="usrPassword" column="USR_PASSWORD" />
+		<result property="usrFlag" column="USR_FLAG" />
+		<result property="usrRoleId" column="USR_ROLE_ID" />
+		
+	</resultMap>
+
+	<select id="login" parameterType="sysUser" resultMap="baseResultMap">
+		select *
+		from SYS_USER where USR_NAME=#{usrName} and USR_PASSWORD=#{usrPassword}
+	</select>
+	
+	<!-- 根据角色id查询客户经理 廖尚岗（9.5） -->
+	<select id="selectCusManger" resultMap="baseResultMap">
+		SELECT * FROM sys_user WHERE usr_role_id = 2
+	</select>
+</mapper>

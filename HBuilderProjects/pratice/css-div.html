@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div div {
+				/*为所有内层div设置默认宽度*/
+				height: 200px;
+			}
+			
+			.head {
+				background-color: #0000FF;
+			}
+			.head img{
+				float: left;
+				width: 200px;
+				height: 190px;
+				padding: 5px;
+				margin-right: 20px;
+			}
+			.head h1{
+				float: left;
+				font: "微软雅黑";
+				color: #20B2AA;
+				font-size: 100px;
+				line-height: 80px;
+			}
+			.nav {
+				background-color: #B22222;
+				float:left; /*左浮动*/
+				width: 20%;
+			}
+			
+			.content{
+				background-color: #FF0000;
+				float: left;
+				width: 60%;
+			}
+			
+			.right {
+				background-color: #008000;
+				float:left; /*//左浮动*/
+   				width:20%;  /*//宽度占浏览器窗口20%*/
+			}
+			
+			.foot {
+				background-color: #FFFF00;
+				clear: both;/* //清除浮在它上方（浏览器窗口左右两边的）的其他元素*/
+			}
+			* { /*//选中全部元素*/
+   				margin : 0;  /*//外边距为0*/
+  			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 页面内容区域开始 -->
+		<div class="main">
+
+			<!-- 最上方头部区域 -->
+			<div class="head">
+				<img src="imges/HBuilder.png" />
+				<h1>Weside Name</h1>
+			</div>
+			<!-- 中间区域第一列 -->
+			<div class="nav">
+				<h1>Navigation</h1>
+				<h2><a href="">one</a></h2>
+				<h2><a href="">two</a></h2>
+				<h2><a href="">three</a></h2>
+			</div>
+			<!-- 中间区域第二列 -->
+			<div class="content"></div>
+			<!-- 中间区域第三列 -->
+			<div class="right"></div>
+			<!-- 底部页脚区域 -->
+			<div class="foot"></div>
+		</div>
+		<!-- 页面内容区域结束 -->
+	</body>
+
+</html>

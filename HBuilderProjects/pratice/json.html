@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	</head>
+
+	<body>
+		<h2>javascript创建JSON对象</h2>
+		<p>
+			网站名称：<span id="jname"></span><br /> 网站地址：
+			<span id="jurl"></span><br /> 网站slogan:
+			<span id="jslogan"></span><br />
+		</p>
+		<script>
+			var JSONObject = {
+				"name": "百度",
+				"url": "www.baidu.com",
+				"slogan": "百度一下，你就知道！"
+			}
+			document.getElementById("jname").innerHTML = JSONObject.name;
+			document.getElementById("jurl").innerHTML = JSONObject.url;
+			document.getElementById("jslogan").innerHTML = JSONObject.slogan;
+		</script>
+		<hr>
+		<p>第一个网站名称：<span id="name1"></span></p>
+		<p>第二个网站修改后的名称：<span id="name2"></span></p>
+		<script>
+			var sites = [{
+					"name": "baidu",
+					"url": "www.baidu.com"
+				},
+				{
+					"name": "微博",
+					"url": "www.weibo.com"
+				},
+				{
+					"name": "google",
+					"url": "www.google.com"
+				}
+			];
+			document.getElementById("name1").innerHTML = sites[0].name;
+			//修改网站名称
+			sites[0].name = "百度";
+			document.getElementById("name2").innerHTML = sites[0].name;
+		</script>
+		<hr>
+		<h2>你可以使用点号（.）来访问 JSON 对象的值：</h2>
+		<p id="demo"></p>
+		<script>
+			var myObj, x;
+			myObj = {
+				"name": "baidu",
+				"alexa": 10000,
+				"site": null
+			};
+			x = myObj.name;
+			document.getElementById("demo").innerHTML = x;
+		</script>
+		<hr>
+		<h2>你也可以使用中括号（[]）来访问 JOSN 对象的值：</h2>
+		<p id="demo1"></p>
+		<script>
+			var myObj1, x;
+			myObj1 = {
+				"name": "baidu",
+				"alexa": 10000,
+				"site": null
+			};
+			x = myObj1["name"];
+			document.getElementById("demo1").innerHTML = x;
+		</script>
+		<hr>
+		<h2>使用 for-in 来循环对象的属性:</h2>
+		<p id="demo2"></p>
+		<script>
+			var myObj2 = {
+				"name": "baidu",
+				"alexa": 10000,
+				"site": null
+			};
+			for(x in myObj2) {
+				document.getElementById("demo2").innerHTML += x + "<br>";
+			}
+		</script>
+		<hr>
+		<h2>JSON 对象中可以包含另外一个 JSON 对象</h2>
+		<p id="demo3"></p>
+		<script>
+			var myObj3 = {
+				"name": "baidu",
+				"alexa": 10000,
+				"sites": {
+					"site1": "www.baidu.com",
+					"site2": "www.ooo.com",
+					"site3": "www.haha.com"
+				}
+			};
+			document.getElementById("demo3").innerHTML += myObj3.sites.site1 + "<br>";
+			document.getElementById("demo3").innerHTML += myObj3.sites["site1"];
+		</script>
+		<hr>
+		<h2>修改 JSON 对象的值。</h2>
+
+		<p id="demo4"></p>
+
+		<script>
+			var myObj4, i, x = "";
+			myObj4 = {
+				"name": "runoob",
+				"alexa": 10000,
+				"sites": {
+					"site1": "www.runoob.com",
+					"site2": "m.runoob.com",
+					"site3": "c.runoob.com"
+				}
+			}
+			myObj4.sites.site1 = "www.google.com";
+			for(i in myObj4.sites) {
+				x += myObj4.sites[i] + "<br>";
+			}
+			document.getElementById("demo4").innerHTML = x;
+		</script>
+		<hr>
+		<h2>访问 JOSN 对象数组值。</h2>
+		<p id="dem5"></p>
+		<script>
+			var myObj5,x;
+			myObj5 = {
+				"name":"网站",
+				"num":3,
+				"sites":["Google","Runoob","TaoBao"]
+			}
+			x = myObj5.sites[0];
+			document.getElementById("dem5").innerHTML = x;
+		</script>
+		<hr>
+		<h2>你可以使用 for-in 来访问数组:</h2>
+		<p id="dem6"></p>
+		<script>
+			var myObj6, i, x = "";
+			myObj6  = {
+				"name":"网站",
+				"num":3,
+			}
+		</script>
+		<hr>
+		<h2>循环内嵌数组：</h2>
+		<p id="demo7"></p>
+		<script>
+			var myObj7,i,j,x="";
+			myObj7 = {
+				"name":"网站",
+				"num":3,
+				"sites":[
+				{"name":"Google","info":["Android", "Google 搜索", "Google 翻译" ]},
+				{"name":"Runoob","info":["菜鸟教程","菜鸟工具","菜鸟微信"]},
+				{"name":"Taobal","info":["淘宝","网购"]}
+				]
+			}
+			for(i in myObj7.sites){
+				x +="<h1>"+myObj7.sites[i].name+"</h1>";
+				for (j in myObj7.sites[i].info) {
+					x += myObj7.sites[i].info[j] +"<br>";
+				}
+			}
+			document.getElementById("demo7").innerHTML = x;
+		</script>
+		<hr>
+		<h2>修改 JSON 对象数组值。</h2>
+		<p id="demo8"></p>
+		<script>
+			var myObj8,i,x="";
+			myObj8 = {
+				"name":"网站",
+				"num":3,
+				"sites":["Google","Runoob","Taobao"]
+			};
+			myObj8.sites[1] = "Baidu";
+			for (i in myObj8.sites) {
+				x += myObj8.sites[i]+"<br>";
+			}
+			document.getElementById("demo8").innerHTML = x;
+		</script>
+		<hr>
+		<h2>删除数组元素</h2>
+		<p id="demo9"></p>
+		<script>
+			var myObj9,i,x = "";
+			myObj9 = {
+				"name":"网站",
+				"num":3,
+				"sites":["Google","Baidu","Taobao"]
+			};
+			delete myObj9.sites[1];
+			
+			for (i in myObj9.sites) {
+				x += myObj9.sites[i] +"<br>";
+			}
+			document.getElementById("demo9").innerHTML = x;
+		</script>
+		<hr>
+		<h2>我们使用 JSON.parse() 方法处理服务器发来的数据，将其转换为 JavaScript 对象：</h2>
+		<p id="demo10">
+			<script>
+				var obj = JSON.parse('{"name":"baidu","alexa":10000,"site":"www.baidu.com"}');
+				document.getElementById("demo10").innerHTML = obj.name+":"+obj.site;
+			</script>
+		</p>
+	</body>
+
+</html>

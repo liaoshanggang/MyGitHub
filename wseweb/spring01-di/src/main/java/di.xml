@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- spring bean容器 -->
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<!-- 
+		spring注入的3种方式：
+		 1. setter注入，推荐方式
+		 2. 构造注入
+		 3. 接口注入
+		 
+		声明一个墨盒bean,相当于new InkImpl(...) 
+	-->
+	<bean id="colorInk" class="com.lanqiao.di.printer.InkImpl">
+		<!-- 注入RGB色素 -->
+		<property name="red" value="200"/>
+		<property name="green" value="20"/>
+		<property name="blue">
+			<value>10</value>
+		</property>
+	</bean>
+	
+	<bean id="grayInk" class="com.lanqiao.di.printer.InkImpl">
+		<!-- 注入RGB色素 -->
+		<property name="red" value="100"/>
+		<property name="green" value="100"/>
+		<property name="blue">
+			<value>100</value>
+		</property>
+	</bean>
+	
+	<bean id="a4Paper" class="com.lanqiao.di.printer.Paper">
+		<!-- 构造注入 -->
+		<constructor-arg index="0" value="30"/>
+		<constructor-arg index="1" value="40"/>
+	</bean>
+	
+	<bean id="b5Paper" class="com.lanqiao.di.printer.Paper">
+		<!-- 构造注入 -->
+		<constructor-arg index="0" value="25"/>
+		<constructor-arg index="1" value="35"/>
+	</bean>
+	
+	<bean id="a4ColorPrinter" class="com.lanqiao.di.printer.Printer">
+		<property name="ink" ref="colorInk"/>
+		<property name="paper" ref="a4Paper"/>
+	</bean>
+	
+	<bean id="b5GrayPrinter" class="com.lanqiao.di.printer.Printer">
+		<property name="ink" ref="grayInk"/>
+		<property name="paper" ref="b5Paper"/>
+	</bean>
+	
+</beans>	

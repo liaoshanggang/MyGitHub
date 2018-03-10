@@ -1,0 +1,33 @@
+html body{
+	height: 100%;
+}
+header{
+	width: 100%;
+	height: 56px;
+	background: #FFD100;
+}
+header nav{
+	height: 56px;
+	margin: 0 70px;
+	position: relative;
+}
+header nav .logo{
+	position: absolute;
+	top: 18px;
+	left: 0;
+}
+header nav .menu .menu-box{
+	text-align: center;
+}
+.hide{
+	display: none;
+}
+*{
+	margin: 0;
+}
+.menu-list{
+	float: left;
+}
+.left{
+	float: left;
+}

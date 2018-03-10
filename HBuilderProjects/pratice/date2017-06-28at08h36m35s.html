@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图9.2访问节点获取表格中的数据</title>
+		<style>
+			table{
+				border-collapse: collapse;				
+			}
+			table,th,td{
+				text-align: center;
+				border: 1px solid black;
+				font-size: 13px;
+			}
+			td{
+				width: 140px;
+				height: 28px;
+			}
+		</style>
+		<script>
+			function show(){
+				var et = document.getElementById("employees");
+//				console.log(et.nodeName);//TABLE
+//				console.log(et.nodeValue);//null
+//				console.log(et.nodeType);//1
+//				console.log(et.lastChild.nodeName);//#text
+//				console.log(et.lastChild.nodeValue);
+//				console.log(et.lastChild.nodeType);//3
+//				console.log(et.lastElementChild.nodeName);//"TBODY
+				var employees = document.getElementById("employees");
+				var s = et.lastElementChild.lastElementChild.firstElementChild.firstChild.nodeValue;
+				document.getElementById("showValue").value = s;
+			}
+		</script>
+	</head>
+	<body>
+		<table id="employees">
+			<thead>
+				<tr>
+					<td>编号</td>
+					<td>姓名</td>
+					<td>电话号码</td>
+					<td>月薪</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>100</td>
+					<td>张三</td>
+					<td>12580</td>
+					<td>1000</td>
+				</tr>
+				<tr>
+					<td>200</td>
+					<td>李四</td>
+					<td>120120</td>
+					<td>2000</td>
+				</tr>
+				<tr>
+					<td>300</td>
+					<td>王五</td>
+					<td>119119</td>
+					<td>3000</td>
+				</tr>
+			</tbody>
+		</table>
+		<p><input type="button" name="btn" value="表.lastElementChild.lastElementChild.firstElementChild.firstChild.nodeValue" onclick="show();"></p>
+		<p>获取到的值为：<input type="text" id="showValue" size="65"/></p>
+	</body>
+</html>

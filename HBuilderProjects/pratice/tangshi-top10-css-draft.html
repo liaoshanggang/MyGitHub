@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <!--告诉浏览器，用utf-8的编码格式显示网页内容-->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--标题-->
+  <title>唐诗排行榜-前十名</title>
+<style>
+/* 用CSS选择器选中table、th和td标签 */
+table, th, td {
+ //border: 1px solid black;  /* 边框粗细1个像素，边框类型是“实线”，边框颜色是“黑色” */
+}
+table {
+  border-collapse: collapse;/* 使表格边框合并成单一边框 */
+}
+table {
+  width: 100%; /* 表格宽度占据屏幕宽度100% */
+}
+th {
+  height: 50px; /* 表头高度为50像素 */
+}
+th {
+   text-align: left; /* 此处定义文本对齐方式是“左对齐” */
+}
+/* 选中表格里的全部td元素 */
+td {
+height: 50px; /* 高度50像素 */
+vertical-align: bottom; /* 垂直对齐方式：底部 */
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+/* 当tr元素上方有鼠标悬停的时候 */
+tr:hover {
+  background-color: #f5f5f5;    /* 修改tr元素背景色 */
+}
+/* 选中偶数行的tr元素 */
+tr:nth-child(even) {
+      background-color: #f2f2f2;  /* 选中偶数行的tr元素 */
+}
+/* 选中表头单元格 */
+th {
+  background-color: #4CAF50; /* 背景色是绿色 */
+  color: white; /* 背景色是绿色 */
+}
+</style>
+ </head>
+ <body>
+ <!-- 页面内容区 -->
+ <!--数据表格开始-->
+<table>
+    <caption>唐诗排行榜统计前十名</caption>
+<!-- 表格第一行开始 -->
+<thead>
+<tr>
+ <!-- 总计14个表头开始 -->
+ <th>排名</th>
+ <th>诗名</th>
+ <th>作者</th>
+ <th>诗体</th>
+ <th>时代</th>
+ <th>古代选本</th>
+ <th>现代选本</th>
+ <th>历代评点</th>
+ <th>论文篇数</th>
+ <th>全录</th>
+ <th>摘录</th>
+ <th>文学史总</th>
+ <th>网络连接总数</th>
+ <th>综合指标</th>
+</tr>
+ <!-- 总计14个表头结束 -->
+<!-- 表格第一行结束 -->
+</thead>
+<!-- <tbody style="display:block;height:150px;overflow-y:auto;"> -->
+<tbody>
+<!-- 第一行数据内容开始 -->
+<tr>
+ <!-- 总计12个数据元素开始-->
+ <!-- 每个数据元素都显示成当前行里面的一列 -->
+ <td>1</td>
+ <td>黄鹤楼</td>
+ <td>崔颢</td>
+ <td>七律</td>
+ <td>盛唐</td>
+ <td>17</td>
+ <td>24</td>
+ <td>38</td>
+ <td>1</td>
+ <td>5</td>
+ <td>4</td>
+ <td>9</td>
+ <td>135600</td>
+ <td>0.8153</td>
+ <!-- 总计12个数据元素开始 -->
+</tr>
+<!-- 第一行数据内容结束 -->
+<tr>
+ <td>2</td>
+ <td>送元二使安西</td>
+ <td>王维</td>
+ <td>七绝</td>
+ <td>盛唐</td>
+ <td>13</td>
+ <td>27</td>
+ <td>21</td>
+ <td>3</td>
+ <td>4</td>
+ <td>4</td>
+ <td>8</td>
+ <td>108700</td>
+ <td>0.6256</td>
+</tr>
+<tr>
+ <td>3</td>
+ <td>凉州词（黄河远上）</td>
+ <td>王之涣</td>
+ <td>七绝</td>
+ <td>盛唐</td>
+ <td>10</td>
+ <td>28</td>
+ <td>17</td>
+ <td>26</td>
+ <td>6</td>
+ <td>3</td>
+ <td>9</td>
+ <td>101000</td>
+ <td>0.5924</td>
+</tr>
+<tr>
+ <td>4</td>
+ <td>登鹳雀楼</td>
+ <td>王之涣</td>
+ <td>五绝</td>
+ <td>盛唐</td>
+ <td>10</td>
+ <td>30</td>
+ <td>15</td>
+ <td>19</td>
+ <td>7</td>
+ <td>1</td>
+ <td>8</td>
+ <td>102700</td>
+ <td>0.5802</td>
+</tr>
+<tr>
+ <td>5</td>
+ <td>登岳阳楼</td>
+ <td>杜甫</td>
+ <td>五律</td>
+ <td>盛唐</td>
+ <td>11</td>
+ <td>26</td>
+ <td>23</td>
+ <td>4</td>
+ <td>2</td>
+ <td>2</td>
+ <td>4</td>
+ <td>85700</td>
+ <td>0.5778</td>
+</tr>
+<tr>
+ <td>6</td>
+ <td>登柳州城楼</td>
+ <td>柳宗元</td>
+ <td>七律</td>
+ <td>中唐</td>
+ <td>9</td>
+ <td>25</td>
+ <td>26</td>
+ <td>3</td>
+ <td>4</td>
+ <td>3</td>
+ <td>7</td>
+ <td>12590</td>
+ <td>0.5774</td>
+</tr>
+<tr>
+ <td>7</td>
+ <td>临洞庭湖赠张丞相</td>
+ <td>孟浩然</td>
+ <td>五律</td>
+ <td>盛唐</td>
+ <td>12</td>
+ <td>23</td>
+ <td>20</td>
+ <td>1</td>
+ <td>6</td>
+ <td>1</td>
+ <td>7</td>
+ <td>63580</td>
+ <td>0.5748</td>
+</tr>
+<tr>
+ <td>8</td>
+ <td>题破山寺后禅院</td>
+ <td>常建</td>
+ <td>五律</td>
+ <td>盛唐</td>
+ <td>15</td>
+ <td>16</td>
+ <td>19</td>
+ <td>0</td>
+ <td>5</td>
+ <td>2</td>
+ <td>7</td>
+ <td>44300</td>
+ <td>0.5678</td>
+</tr>
+<tr>
+ <td>9</td>
+ <td>送杜少府之任蜀州</td>
+ <td>王勃</td>
+ <td>五律</td>
+ <td>初唐</td>
+ <td>12</td>
+ <td>28</td>
+ <td>13</td>
+ <td>10</td>
+ <td>6</td>
+ <td>1</td>
+ <td>7</td>
+ <td>118700</td>
+ <td>0.5658</td>
+</tr>
+<tr>
+ <td>10</td>
+ <td>蜀道难</td>
+ <td>李白</td>
+ <td>七古</td>
+ <td>盛唐</td>
+ <td>6</td>
+ <td>25</td>
+ <td>23</td>
+ <td>36</td>
+ <td>6</td>
+ <td>3</td>
+ <td>9</td>
+ <td>228000</td>
+ <td>0.5635</td>
+</tr>
+</table>
+<!--数据表格结束-->
+</tbody>
+<tfoot>
+ <tr>
+  <td colspan="14">这部分内容是页脚</td>
+ </tr>
+</tfoot>
+ </body>
+</html>

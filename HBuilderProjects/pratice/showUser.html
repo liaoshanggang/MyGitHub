@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			function query(){
+				//$("#submit").click(function() {
+					//$(".showEmp").children().html("<tr><td>23</td></tr>");
+					var text = "<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td><button onclick='removeRow(this)'>删除</button></td></tr>";
+					$(".showEmp").children().append(text);
+					var empNo = $("#empNo").val();
+					var ename = $("#ename").val();
+					var deptno = $("#deptno").val();
+					//alert(empNo + "" + ename + "" + deptno);
+					$.post("EmpServlet?m=queryAll", //利用ajax发起请求，这里写servlet的路径  
+						{
+							"empNo": empNo,
+							"ename": ename,
+							"deptno": deptno
+						},
+						function(data) {
+							//{"emps":{"comm":0,"deptno":0,"empNo":0,"ename":"","hireDate":null,"job":"","mgr":0,"sal":0}}
+							document.getElementById("empNo1").innerHTML = data.emps["empNo"];
+							document.getElementById("ename1").innerHTML = data.emps["ename"];
+							document.getElementById("job1").innerHTML = data.emps["job"];
+							document.getElementById("mgr1").innerHTML = data.emps["mgr"];
+							document.getElementById("hireDate1").innerHTML = data.emps["hireDate"];
+							document.getElementById("sal1").innerHTML = data.emps["sal"];
+							document.getElementById("comm1").innerHTML = data.emps["comm"];
+							document.getElementById("deptno1").innerHTML = data.emps["deptno"];
+						}, "json");
+				//})
+			
+			}
+			function removeRow(nowTr){
+				$(nowTr).parent().parent().remove();
+			}
+		</script>
+		<style>
+			.showEmp {
+				width: 80%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<a href="index.jsp">返回导航页</a>
+		<div>
+			<span>雇员编号:</span><input type="text" id="empNo" name="empNo" value="7369" />
+			<span>雇员名:</span><input type="text" id="ename" name="ename" value="SMITH" />
+			<span>部门编号:</span><input type="text" id="deptno" name="deptno" value="30" />
+			<input type="submit" value="查询" id="submit" onclick="query()" />
+		</div>
+		<table border="1" class="showEmp">
+			<tr>
+				<td>雇员编号</td>
+				<td>雇员名</td>
+				<td>雇员工作</td>
+				<td>管理者编号</td>
+				<td>雇佣日期</td>
+				<td>薪水</td>
+				<td>佣金</td>
+				<td>部门编号</td>
+				<td>操作</td>
+			</tr>
+		</table>
+	</body>
+
+</html>

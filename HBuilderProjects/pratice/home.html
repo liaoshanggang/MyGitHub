@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/home.js" ></script>
+		<script>
+			/*alert("hello0");*/
+		</script>
+		<script>
+			function calc(){
+			var input1 = prompt("操作数1","6");
+			var oper = prompt("操作符","+");
+			var input2 = prompt("操作数","6");
+			
+			var rst;
+			number1 = Input1.parseFloat(input1);
+			number2 = Input2.parseFloat(input2);
+			switch(oper){
+				case "+":
+				rst=number1+number2;
+				break;
+				case "-":
+				rst=number1-number2;
+				break;
+				case "*":
+				rst=number1*number2;
+				break;
+				case "/":
+				rst=number1/number2;
+				break;
+				default:
+				rst="操作符输入错误！";
+				break;
+			}
+			return rst;
+			}
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="警告" onclick="javascript:alert('我是JavaScript脚本代码！');" />
+		<input type="button" value="hello" onclick="alert()" />
+		
+		<script>
+			/*alert("hello2");*/
+			var height = 80;
+			var left,right,top,bottom = 20;
+			var info = "I'm fine!";
+			var width;
+			width = 80;
+			document.write("<h3>JavaScript的数据类型及typeof使用</h3>");
+			var undef,width=80,height=20.5,fill=true;
+			var fileName="typeof.html";
+			var objecttype=new Date();
+			document.write("undef的类型为："+typeof(undef)+"<br>");
+			document.write("width的类型为："+typeof(width)+"<br>");
+			document.write("height的类型为："+typeof(height)+"<br>");
+			document.write("fill的类型为："+typeof(fill)+"<br>");
+			document.write("fileName的类型为："+typeof(fileName)+"<br>");
+			document.write("objecttype的类型为："+typeof(objecttype)+"<br>");
+		</script>
+		<script>
+			/*alert("hello3");*/
+		</script>
+		<script>
+			/*var sun = '\u263c';
+			var num = prompt("请输入多少行！",10);
+			for (var i=0;i<num;i++) {
+				document.write("hello"+i+<br>);
+			}*/
+		</script>
+		<script>
+			document.write(window.innerWidth);
+		</script>
+		<h1 id="pid">hello</h1>
+		<script>
+			document.getElementById("pid").innerHTML="hhhhhhhh";
+		</script>
+		<script>
+		</script>
+		
+		<input name="calc" type="button" value="JS计算器" onclick="calc();" />
+		<script>
+			function f(){
+				name = 'sdfjs';
+			}
+			f();
+			alert(name);
+			console.info("hello");
+			
+			name1 = "***";
+			function f1(){
+				name1 = 'sdfjsf1';
+			}
+			f1();
+			alert(name1);
+			console.info("hello1");
+		</script>
+	</body>
+</html>

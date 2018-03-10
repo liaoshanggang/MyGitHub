@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>5. 将我们班级人员信息做成级联菜单</title>
+	</head>
+	<body>
+		<p>
+			<select id="selPro" style="width: 150px;" onchange="changeStu();">
+				<option>===请选择专业===</option>
+			</select>
+			<select id="selStu" style="width: 150px;" onchange="showSelInfo();">
+				<option>===请选择人员===</option>
+			</select>
+		</p>
+		<p>
+			<div id="showInfo"></div>
+		</p>
+		<script>
+			var stuInfo = {
+				"电子信息工程": ["电1xx", "电2xx"],
+				"计算机科学与技术": ["计1xx", "计2xx"],
+				"软件工程": ["软1xx", "软2xx"],
+				"物联网工程":["物1xx","物2xx"],
+				"通信工程":["通1xx","通2xx"],
+				"地理信息科学":["地xx"]
+			};
+			//1、初始化
+			(function() {
+				var selObj = document.getElementById("selPro");
+				for(key in stuInfo) {
+					selObj.add(new Option(key, key), null);
+				}
+			})();
+
+			//2、选择省份后，显示对应城市选项
+			function changeStu() {
+				var name = document.getElementById("selPro").value;
+				var stus = stuInfo[name]; //选择省份对应的城市数组
+				var opStu = document.getElementById("selStu");
+
+				opStu.options.length = 0; //清除选择框
+
+				//类似初始化操作一样
+				opStu.add(new Option('===请选择专业===', -1), null);
+				for(skey in stus) {
+					opStu.add(new Option(stus[skey], stus[skey]), null);
+				}
+			}
+
+			//3、在选择省份后，再选择城市后顺便显示出选择的信息
+			function showSelInfo() {
+				var selPro = document.getElementById("selPro");
+				var selStu = document.getElementById("selStu");
+				document.getElementById("showInfo").innerHTML = "选择的专业为：" + selPro.value + ",选择的学生为：" + selStu.value;
+			}
+		</script>
+	</body>
+</html>

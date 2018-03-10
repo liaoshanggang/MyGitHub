@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script>
+			$(document).ready(function(){
+				$('li').css('color','blue');
+				$('#hehe').css('color','chartreuse');
+				$('.heihei').css('color','darkorchid');
+				$('li[title]').css('color','green');
+				$('ul>li').css('color','#080808');
+				$('ul a').css('color','#C12E2A');
+				$($($($('div')))).append('<input value="yyy"/>');
+			})
+			$(function(){
+				$.each()
+				$("li").each(function(index){
+					//console.log(index+":"+$(this).text());
+					console.info(index+":"+$(this).text());
+				})
+			})
+			function query() {
+
+//先获得table下的thead再获得下一个同胞再添加
+	var empno = $("#empno").val();
+	var deptno = $("#deptno").val();
+	//alert(empno+"hello"+deptno);
+	$.post(
+		"EmpServlet?m=queryEmp",{
+			"empno" : empno,
+			"deptno" : deptno
+		},function(data) {
+			var empObj = JSON.parse(data);
+						var empsList = empObj.emps;
+						//alert(empsList);
+						strTR = '';
+						$
+								.each(
+										empsList,
+										function(index, emp) {
+											strTR += '<tr>';
+											strTD = '';
+											strTD += '<td>' + emp.empno
+													+ '</td>';
+											strTD += '<td>' + emp.ename
+													+ '</td>';
+											strTD += '<td>' + emp.job
+													+ '</td>';
+											strTD += '<td>' + emp.mgr
+													+ '</td>';
+											strTD += '<td>' + emp.hiredate
+													+ '</td>';
+											strTD += '<td>' + emp.sal
+													+ '</td>';
+											strTD += '<td>' + emp.comm
+													+ '</td>';
+											strTD += '<td>' + emp.deptno
+													+ '</td>';
+											strTD += '<td><button onclick="removeTD(this)">删除</button></td>';
+											strTD += '<td><button onclick="updateTD(this)">更新</button></td>';
+											strTR += strTD + '</tr>';
+										});
+							//alert(strTR);
+							$("#Tb_Emp").children().next().append(strTR);
+						});
+	}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li id="hehe">呵呵</li>
+			<li title="">哈哈</li>
+			<li>嘎嘎</li>
+			<li class="heihei">嘿嘿</li>
+			<li><a>百度</a></li>
+		</ul>
+		<div>
+			
+		</div>
+	</body>
+</html>

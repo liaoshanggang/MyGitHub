@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body <hr>
+		<div class="container">
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">聚焦</label>
+					<div class="col-sm-10">
+						<input class="form-control" id="focusedInput" type="text" value="该输入框获得焦点...">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword" class="col-sm-2 control-label">
+			禁用
+		</label>
+					<div class="col-sm-10">
+						<input class="form-control" id="disabledInput" type="text" placeholder="该输入框禁止输入..." disabled>
+					</div>
+				</div>
+				<fieldset disabled>
+					<div class="form-group">
+						<label for="disabledTextInput" class="col-sm-2 control-label">禁用输入（Fieldset disabled）
+			</label>
+						<div class="col-sm-10">
+							<input type="text" id="disabledTextInput" class="form-control" placeholder="禁止输入">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="disabledSelect" class="col-sm-2 control-label">禁用选择菜单（Fieldset disabled）
+			</label>
+						<div class="col-sm-10">
+							<select id="disabledSelect" class="form-control">
+								<option>禁止选择</option>
+							</select>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<hr>
+		<div class="container">
+
+			<form role="form">
+				<hr>
+				<h2>静态控件</h2>
+
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Email</label>
+						<div class="col-sm-10">
+							<p class="form-control-static">email@example.com</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword" class="col-sm-2 control-label">密码</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="inputPassword" placeholder="请输入密码">
+						</div>
+					</div>
+				</form>
+
+				<hr>
+				<div class="form-group">
+					<label for="name">选择列表</label>
+					<select class="form-control">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<label for="name">可多选的选择列表</label>
+					<select multiple class="form-control">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+			</form>
+
+		</div>
+		<hr>
+		<div class="container">
+			<label for="name">默认的复选框和单选按钮的实例</label>
+			<div class="checkbox">
+				<label>
+    			<input type="checkbox" value="">选项 1
+ 	 		</label>
+			</div>
+			<div class="checkbox">
+				<label>
+    				<input type="checkbox" value="">选项 2
+  				</label>
+			</div>
+			<div class="radio">
+				<label>
+  			  		<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>选项 1
+  				</label>
+			</div>
+			<div class="radio">
+				<label>
+    				<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">选项 2 - 选择它将会取消选择选项 1
+  				</label>
+			</div>
+			<label for="name">内联的复选框和单选按钮的实例</label>
+			<div>
+				<label class="checkbox-inline">
+		<input type="checkbox" id="inlineCheckbox1" value="option1"> 选项 1
+	</label>
+				<label class="checkbox-inline">
+		<input type="checkbox" id="inlineCheckbox2" value="option2"> 选项 2
+	</label>
+				<label class="checkbox-inline">
+		<input type="checkbox" id="inlineCheckbox3" value="option3"> 选项 3
+	</label>
+				<label class="checkbox-inline">
+		<input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="option1" checked> 选项 1
+	</label>
+				<label class="checkbox-inline">
+		<input type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="option2"> 选项 2
+	</label>
+			</div>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>文本框（Textarea）</h2>
+
+			<form role="form">
+				<div class="form-group">
+					<label for="name">文本框</label>
+					<textarea class="form-control" rows="3"></textarea>
+				</div>
+			</form>
+		</div>
+		<hr>
+		<div class="container">
+
+			<h2>输入框（Input）</h2>
+			<form role="form">
+				<div class="form-group">
+					<label for="name">标签</label>
+					<input type="text" class="form-control" placeholder="文本输入">
+				</div>
+			</form>
+
+		</div>
+		<hr>
+		<div class="container">
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label for="firstname" class="col-sm-2 control-label">名字</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="firstname" placeholder="请输入名字">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="lastname" class="col-sm-2 control-label">姓</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="lastname" placeholder="请输入姓">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<div class="checkbox">
+							<label>
+         		 			<input type="checkbox">请记住我
+        				</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-default">登录</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>Bootstrap 实例 - 内联表单</h2>
+			<form class="form-inline" role="form">
+				<div class="form-group">
+					<label class="sr-only" for="name">名称</label>
+					<input type="text" class="form-control" id="name" placeholder="请输入名称">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="inputfile">文件输入</label>
+					<input type="file" id="inputfile">
+				</div>
+				<div class="checkbox">
+					<label>
+			<input type="checkbox"> 请打勾
+		</label>
+				</div>
+				<button type="submit" class="btn btn-default">提交</button>
+			</form>
+		</div>
+		<hr>
+		<div class="container">
+			<form role="form">
+				<div class="form-group">
+					<label for="name">名称</label>
+					<input type="text" class="form-control" id="name" placeholder="请输入名称">
+				</div>
+				<div class="form-group">
+					<label for="inputfile">文件输入</label>
+					<input type="file" id="inputfile">
+					<p class="help-block">这里是块级帮助文本的实例。</p>
+				</div>
+				<div class="checkbox">
+					<label>
+      <input type="checkbox">请打勾
+    </label>
+				</div>
+				<button type="submit" class="btn btn-default">提交</button>
+			</form>
+		</div>
+		<hr>
+		<div class="container">
+			<div class="table-responsive">
+				<table class="table">
+					<caption>响应式表格布局</caption>
+					<thead>
+						<tr>
+							<th>产品</th>
+							<th>付款日期</th>
+							<th>状态</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>产品1</td>
+							<td>23/11/2013</td>
+							<td>待发货</td>
+						</tr>
+						<tr>
+							<td>产品2</td>
+							<td>10/11/2013</td>
+							<td>发货中</td>
+						</tr>
+						<tr>
+							<td>产品3</td>
+							<td>20/10/2013</td>
+							<td>待确认</td>
+						</tr>
+						<tr>
+							<td>产品4</td>
+							<td>20/10/2013</td>
+							<td>已退货</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>Bootstrap 实例 - 上下文类</h2>
+			<table class="table">
+				<caption>上下文表格布局</caption>
+				<thead>
+					<tr>
+						<th>产品</th>
+						<th>付款日期</th>
+						<th>状态</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="active">
+						<td>产品1</td>
+						<td>23/11/2013</td>
+						<td>待发货</td>
+					</tr>
+					<tr class="success">
+						<td>产品2</td>
+						<td>10/11/2013</td>
+						<td>发货中</td>
+					</tr>
+					<tr class="warning">
+						<td>产品3</td>
+						<td>20/10/2013</td>
+						<td>待确认</td>
+					</tr>
+					<tr class="danger">
+						<td>产品4</td>
+						<td>20/10/2013</td>
+						<td>已退货</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>表格</h2>
+			<p> .warning 类表示一个警告操作:</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Firstname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="warning">
+						<td>1</td>
+						<td>Anna</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Debbie</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>John</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>表格</h2>
+			<p> .danger 类表示一个危险的操作:</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Firstname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="danger">
+						<td>1</td>
+						<td>Anna</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Debbie</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>John</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>表格</h2>
+			<p> .info 类表示信息变化的操作:</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Firstname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="info">
+						<td>1</td>
+						<td>Anna</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Debbie</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>John</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>表格</h2>
+			<p> .success 类表示执行成功的操作：</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Firstname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="success">
+						<td>1</td>
+						<td>Anna</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Debbie</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>John</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>表格</h2>
+			<p> .active 类将悬停的颜色应用在行或者单元格上:</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Firstname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="active">
+						<td>1</td>
+						<td>Anna</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Debbie</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>John</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>表格</h2>
+			<p>联合使用所有表格类:</p>
+			<table class="table table-striped table-bordered table-hover table-condensed">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Firstname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Anna</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Debbie</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>John</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>表格</h2>
+			<p> .table-condensed 类让表格更加紧凑:</p>
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Firstname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Anna</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Debbie</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>John</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>Table</h2>
+			<p> .table-hover 类启用表格中 tbody 上的行的悬停效果：</p>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Firstname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Anna</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Debbie</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>John</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<hr>
+		<div class="container">
+			<h2>表格</h2>
+			<p> .table-bordered 类为所有表格的单元格添加边框:</p>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Firstname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Anna</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Debbie</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>John</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>表格</h2>
+			<p> .table-striped 类在 tbody 内添加斑马线形式的条纹 ( IE8 不支持):</p>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Firstname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Anna</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Debbie</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>John</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>表格</h2>
+			<p> .table 为任意表格添加基本样式 (只有横向分隔线):</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Firstname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Anna</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Debbie</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>John</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>代码</h2>
+			<p><code>&lt;header&gt;</code> 作为内联元素被包围。</p>
+			<p>如果需要把代码显示为一个独立的块元素，请使用 &lt;pre&gt; 标签：</p>
+			<pre>
+    &lt;article&gt;
+        &lt;h1&gt;Article Heading&lt;/h1&gt;
+    &lt;/article&gt;
+</pre>
+			<p>使用 var 元素表示变量：</p>
+			<p><var>x</var> = <var>a</var><var>b</var> + <var>y</var></p>
+			<p>使用 kbd 元素表示按键输入:</p>
+			<p>使用 <kbd>ctrl + p</kbd> 来打开打印窗口。</p>
+
+			<p>使用 pre 元素输出多行:</p>
+			<pre>在 pre 元素中的文本
+	宽度的显示与文本的宽度一样，
+	保留了  空  格 和
+
+	换行。</pre>
+			<p>如果你添加 .pre-scrollable 类, pre 元素最大的高度 max-height 为 350px ，并生成一个 Y 轴的滚动条:</p>
+			<pre class="pre-scrollable">在 pre 元素中的文本
+	宽度的显示与文本的宽度一样，
+	保留了  空  格 和
+
+	换行。</pre>
+			<p>使用 samp 元素包含电脑输出的内容:</p>
+			<p><samp>This text is output from a computer program....</samp></p>
+			<p>使用 code 元素来表示代码片段:</p>
+			<p>以下是 HTML 元素: <code>span</code>, <code>section</code>, 和 <code>div</code> 。</p>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>排版</h2>
+			<p class="text-left">左对齐文本</p>
+			<p class="text-right">右对齐文本</p>
+			<p class="text-center">居中对齐文本</p>
+			<p class="text-justify">对齐文本。该段落会根据屏幕的大小对超出屏幕的文字进行换行</p>
+			<p class="text-nowrap">该段落不会根据屏幕的大小对超出屏幕的文字进行换行。</p>
+			<p><strong>提示:</strong> 尝试重置浏览器大写查看 “text-justify” 和 “text-nowrap” 段落的效果。</p>
+			<p class="text-lowercase">Lowercased text（小写文本）.</p>
+			<p class="text-uppercase">Uppercased text（大写文本）.</p>
+			<p class="text-capitalize">Capitalized text（首字母大写文本）.</p>
+			<p><abbr title="世界卫生组织：World Health Organization">WHO</abbr> 成立于 1948. (普通的 abbr)</p>
+			<p><abbr title="世界卫生组织：World Health Organization" class="initialism">WHO</abbr> 成立于 1948。(略小 abbr)</p>
+			<p><abbr title="世界卫生组织：World Health Organization" class="initialism">who</abbr> 成立于 1948。(小写字母 who 转换为 WHO)</p>
+			<p>右对齐引用内容:</p>
+			<blockquote class="blockquote-reverse">
+				<p>For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.</p>
+				<footer>From WWF's website</footer>
+			</blockquote>
+			<p> .list-unstyled 类移除了默认的列表样式，列表项左对齐 (直接子元素):</p>
+			<ul class="list-unstyled">
+				<li>Coffee</li>
+				<li>Tea
+					<ul>
+						<li>Black tea</li>
+						<li>Green tea</li>
+					</ul>
+				</li>
+				<li>Milk</li>
+			</ul>
+			<p> .list-inline 类让所有的项显示在同一行:</p>
+			<ul class="list-inline">
+				<li>Coffee</li>
+				<li>Tea</li>
+				<li>Milk</li>
+			</ul>
+			<h2>排版</h2>
+			<p>使用 dl 元素设置描述列表：</p>
+			<dl class="dl-horizontal">
+				<dt>Coffee</dt>
+				<dd>- black hot drink</dd>
+				<dt>Milk</dt>
+				<dd>- white cold drink</dd>
+			</dl>
+			<p>设置 pre 元素可滚动：</p>
+			<pre class="pre-scrollable">
+		内容可滚动
+		Text in a pre element
+		is displayed in a fixed-width
+		font, and it preserves
+		both      spaces and
+		line breaks.
+		Text in a pre element
+		is displayed in a fixed-width
+		font, and it preserves
+		both      spaces and
+		line breaks.
+	</pre>
+		</div>
+		<div class="container">
+			<h2>排版</h2>
+			<p>这是一个普通的段落。</p>
+			<p class="lead">这是个文字突出的段落。</p>
+			<p>这是一个普通的段落。</p>
+		</div>
+		<hr>
+		<h4>有序列表</h4>
+		<ol>
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+		</ol>
+		<h4>无序列表</h4>
+		<ul>
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+		</ul>
+		<h4>未定义样式列表</h4>
+		<ul class="list-unstyled">
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+		</ul>
+		<h4>内联列表</h4>
+		<ul class="list-inline">
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+		</ul>
+		<h4>定义列表</h4>
+		<dl>
+			<dt>Description 1</dt>
+			<dd>Item 1</dd>
+			<dt>Description 2</dt>
+			<dd>Item 2</dd>
+		</dl>
+		<h4>水平的定义列表</h4>
+		<dl class="dl-horizontal">
+			<dt>Description 1</dt>
+			<dd>Item 1</dd>
+			<dt>Description 2</dt>
+			<dd>Item 2</dd>
+		</dl>
+
+		<hr>
+		<blockquote>
+			<p>
+				这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。
+			</p>
+		</blockquote>
+		<blockquote>
+			这是一个带有源标题的引用。
+			<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+		</blockquote>
+		<blockquote class="pull-right">
+			这是一个向右对齐的引用。
+			<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+		</blockquote>
+		<hr>
+		<h2>Bootstrap 实例 - 地址</h2>
+		<address>
+		<strong>Some Company, Inc.</strong><br>
+		007 street<br>
+		Some City, State XXXXX<br>
+		<abbr title="Phone">P:</abbr> (123) 456-7890
+		</address>
+		<address>
+			<strong>Full Name</strong><br>
+			<a href="mailto:#">mailto@somedomain.com</a>
+		</address>
+		<hr>
+		<h2>Bootstrap 实例 - 缩写</h2>
+		<abbr title="World Wide Web">WWW</abbr><br>
+		<abbr title="Real Simple Syndication" class="initialism">RSS</abbr>
+		<hr>
+		<h2>Bootstrap 实例 - 强调</h2>
+		<small>本行内容是在标签内</small><br>
+		<strong>本行内容是在标签内</strong><br>
+		<em>本行内容是在标签内，并呈现为斜体</em><br>
+		<p class="text-left">向左对齐文本</p>
+		<p class="text-center">居中对齐文本</p>
+		<p class="text-right">向右对齐文本</p>
+		<p class="text-muted">本行内容是减弱的</p>
+		<p class="text-primary">本行内容带有一个 primary class</p>
+		<p class="text-success">本行内容带有一个 success class</p>
+		<p class="text-info">本行内容带有一个 info class</p>
+		<p class="text-warning">本行内容带有一个 warning class</p>
+		<p class="text-danger">本行内容带有一个 danger class</p>
+
+		<hr>
+		<h2>引导主体副本</h2>
+		<p class="lead">这是一个演示引导主体副本用法的实例。这是一个演示引导主体副本用法的实例。这是一个演示引导主体副本用法的实例。这是一个演示引导主体副本用法的实例。这是一个演示引导主体副本用法的实例。这是一个演示引导主体副本用法的实例。这是一个演示引导主体副本用法的实例。这是一个演示引导主体副本用法的实例。</p>
+		<hr> Bootstrap 实例 - 内联子标题
+		<h1>我是标题1 h1. <small>我是副标题1 h1</small></h1>
+		<h2>我是标题2 h2. <small>我是副标题2 h2</small></h2>
+		<h3>我是标题3 h3. <small>我是副标题3 h3</small></h3>
+		<h4>我是标题4 h4. <small>我是副标题4 h4</small></h4>
+		<h5>我是标题5 h5. <small>我是副标题5 h5</small></h5>
+		<h6>我是标题6 h6. <small>我是副标题6 h6</small></h6>
+		<hr> Bootstrap 实例 - 标题
+		<h1>我是标题1 h1</h1>
+		<h2>我是标题2 h2</h2>
+		<h3>我是标题3 h3</h3>
+		<h4>我是标题4 h4</h4>
+		<h5>我是标题5 h5</h5>
+		<h6>我是标题6 h6</h6>
+
+
+	</body>
+
+</html>
