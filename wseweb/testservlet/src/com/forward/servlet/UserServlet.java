@@ -21,8 +21,10 @@ public class UserServlet extends HttpServlet {
 		String returnPage = "/index.jsp"; 
 		System.out.println("hello");
 		if ("login".equals(method)){
+			//http://localhost:8080/testservlet/UserServlet?m=login
 			returnPage = login(request, response);
 		} else if ("register".equals(method)) {
+			//http://localhost:8080/testservlet/UserServlet?m=register
 			userReg(request, response);
 		} else {
 			getUserInfo(request, response);

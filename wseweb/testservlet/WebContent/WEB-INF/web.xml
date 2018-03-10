@@ -10,8 +10,8 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <context-param>
-  	<param-name>defaultName2</param-name>
-  	<param-value>匿名2</param-value>
+    <param-name>defaultName2</param-name>
+    <param-value>匿名2</param-value>
   </context-param>
   <servlet>
     <description></description>
@@ -68,8 +68,8 @@
     <servlet-name>DoLogin</servlet-name>
     <servlet-class>com.forward.servlet.DoLogin</servlet-class>
     <init-param>
-    	<param-name>defalutName</param-name>
-    	<param-value>匿名</param-value>
+      <param-name>defalutName</param-name>
+      <param-value>匿名</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -95,5 +95,15 @@
   <servlet-mapping>
     <servlet-name>NormalServlet</servlet-name>
     <url-pattern>/NormalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PlayVideoSvt</display-name>
+    <servlet-name>PlayVideoSvt</servlet-name>
+    <servlet-class>com.forward.servlet.PlayVideoSvt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PlayVideoSvt</servlet-name>
+    <url-pattern>/PlayVideoSvt</url-pattern>
   </servlet-mapping>
 </web-app>

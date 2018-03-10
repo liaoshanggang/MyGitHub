@@ -47,7 +47,7 @@ public class EmpDao {
 		DBUtil dbUtil = DBUtil.getInstance();
 
 		conn = dbUtil.getConnection();
-		String sql = "SELECT * FROM (SELECT ROWNUM rn,emp.* FROM (SELECT * FROM copy_emp ORDER BY hiredate) emp WHERE ROWNUM <= ?) WHERE rn > ?";
+		String sql = "SELECT * FROM (SELECT ROWNUM rn,emp.* FROM (SELECT * FROM copy_emp ORDER BY hiredate DESC) emp WHERE ROWNUM <= ?) WHERE rn > ?";
 
 		List<Emp> emps = new ArrayList<Emp>();
 		try {

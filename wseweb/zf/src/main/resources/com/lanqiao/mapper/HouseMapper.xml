@@ -19,6 +19,7 @@
 		<result property="telephone" column="TELEPHONE" />
 		<result property="contact" column="CONTACT" />
 		<!-- 关联用户实体 -->
+		<!--一个班级和多个学生之间的关系是“一对多”，反过来看，多个学生和一个班级之间的关系就是“多对一”。-->
 		<association property="userInfo" javaType="userInfo"
 			column="USER_ID" columnPrefix="U_"
 			resultMap="com.lanqiao.mapper.UserMapper.baseResultMap">
